@@ -1,24 +1,166 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wD5-BH-blq">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BV1-FR-VrT" customClass="GameViewController" customModule="HopsterPoke" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="48" y="-2"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="kQ0-Gc-E9R">
+            <objects>
+                <viewController id="wD5-BH-blq" customClass="HomeViewController" customModule="HopsterPoke" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n5Y-cA-4AM">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_home_image" translatesAutoresizingMaskIntoConstraints="NO" id="hoF-qc-FUS">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzS-VV-RhN" customClass="OptionView" customModule="HopsterPoke" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="59" width="393" height="699"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5FA-6T-IfN" customClass="InstructionView" customModule="HopsterPoke" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="59" width="393" height="699"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="33r-YN-vDJ">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="758"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rabbit_go_ahead" translatesAutoresizingMaskIntoConstraints="NO" id="q8l-ua-OfR">
+                                        <rect key="frame" x="106.66666666666669" y="348.66666666666669" width="180" height="180.00000000000006"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="180" id="jTa-f2-d3Z"/>
+                                            <constraint firstAttribute="width" secondItem="q8l-ua-OfR" secondAttribute="height" id="kp0-i4-GSz"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance: 000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYW-gQ-B3k" customClass="CurveLabel" customModule="HopsterPoke" customModuleProvider="target">
+                                        <rect key="frame" x="50.666666666666657" y="292.66666666666669" width="292" height="292.00000000000006"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                        <color key="textColor" name="AccentColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="angle">
+                                                <real key="value" value="3.1000000000000001"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record: 000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81E-ct-C6w" customClass="CurveLabel" customModule="HopsterPoke" customModuleProvider="target">
+                                        <rect key="frame" x="50.666666666666657" y="292.66666666666669" width="292" height="292.00000000000006"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="angle">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="81E-ct-C6w" firstAttribute="centerY" secondItem="EYW-gQ-B3k" secondAttribute="centerY" id="Ee8-9v-1hO"/>
+                                    <constraint firstItem="EYW-gQ-B3k" firstAttribute="centerY" secondItem="q8l-ua-OfR" secondAttribute="centerY" id="PmJ-K7-Nu2"/>
+                                    <constraint firstItem="EYW-gQ-B3k" firstAttribute="leading" secondItem="q8l-ua-OfR" secondAttribute="leading" constant="-56" id="TxQ-WX-3Sh"/>
+                                    <constraint firstItem="81E-ct-C6w" firstAttribute="height" secondItem="EYW-gQ-B3k" secondAttribute="height" id="U19-WK-MDP"/>
+                                    <constraint firstItem="81E-ct-C6w" firstAttribute="width" secondItem="EYW-gQ-B3k" secondAttribute="width" id="pkT-UE-i7x"/>
+                                    <constraint firstItem="EYW-gQ-B3k" firstAttribute="centerX" secondItem="q8l-ua-OfR" secondAttribute="centerX" id="rVI-L2-b37"/>
+                                    <constraint firstItem="81E-ct-C6w" firstAttribute="centerX" secondItem="EYW-gQ-B3k" secondAttribute="centerX" id="tu7-Aj-oHG"/>
+                                    <constraint firstItem="EYW-gQ-B3k" firstAttribute="top" secondItem="q8l-ua-OfR" secondAttribute="top" constant="-56" id="ush-wx-FmI"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbS-6x-l9B" customClass="BetView" customModule="HopsterPoke" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="59" width="393" height="699"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GdL-ES-Ukn" customClass="MenuView" customModule="HopsterPoke" customModuleProvider="target">
+                                <rect key="frame" x="44.666666666666657" y="758" width="304" height="48"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="304" id="4Ml-mI-jBB"/>
+                                    <constraint firstAttribute="height" constant="48" id="tWP-MJ-d4V"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2Ef-fd-VmH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GdL-ES-Ukn" firstAttribute="top" secondItem="bzS-VV-RhN" secondAttribute="bottom" id="2ZP-Q9-dmH"/>
+                            <constraint firstItem="GdL-ES-Ukn" firstAttribute="centerX" secondItem="hoF-qc-FUS" secondAttribute="centerX" id="5sl-lO-naO"/>
+                            <constraint firstItem="5FA-6T-IfN" firstAttribute="leading" secondItem="2Ef-fd-VmH" secondAttribute="leading" id="ABr-bb-2xU"/>
+                            <constraint firstItem="2Ef-fd-VmH" firstAttribute="trailing" secondItem="bzS-VV-RhN" secondAttribute="trailing" id="AeW-If-Uh7"/>
+                            <constraint firstItem="33r-YN-vDJ" firstAttribute="leading" secondItem="2Ef-fd-VmH" secondAttribute="leading" id="Bfd-5c-lfx"/>
+                            <constraint firstItem="xbS-6x-l9B" firstAttribute="leading" secondItem="2Ef-fd-VmH" secondAttribute="leading" id="FJW-HJ-ntN"/>
+                            <constraint firstItem="33r-YN-vDJ" firstAttribute="top" secondItem="n5Y-cA-4AM" secondAttribute="top" id="KS9-19-SGP"/>
+                            <constraint firstItem="5FA-6T-IfN" firstAttribute="top" secondItem="2Ef-fd-VmH" secondAttribute="top" id="KkK-VN-NIS"/>
+                            <constraint firstItem="2Ef-fd-VmH" firstAttribute="trailing" secondItem="33r-YN-vDJ" secondAttribute="trailing" id="OSz-RH-4py"/>
+                            <constraint firstItem="xbS-6x-l9B" firstAttribute="top" secondItem="2Ef-fd-VmH" secondAttribute="top" id="OnF-Ht-XGP"/>
+                            <constraint firstItem="bzS-VV-RhN" firstAttribute="leading" secondItem="2Ef-fd-VmH" secondAttribute="leading" id="XI0-lW-Gog"/>
+                            <constraint firstItem="GdL-ES-Ukn" firstAttribute="top" secondItem="xbS-6x-l9B" secondAttribute="bottom" id="ZbA-ph-cKQ"/>
+                            <constraint firstItem="q8l-ua-OfR" firstAttribute="centerY" secondItem="2Ef-fd-VmH" secondAttribute="centerY" id="aJN-by-IPQ"/>
+                            <constraint firstItem="bzS-VV-RhN" firstAttribute="top" secondItem="2Ef-fd-VmH" secondAttribute="top" id="eDw-M2-oje"/>
+                            <constraint firstItem="hoF-qc-FUS" firstAttribute="top" secondItem="n5Y-cA-4AM" secondAttribute="top" id="eS4-he-dm5"/>
+                            <constraint firstItem="hoF-qc-FUS" firstAttribute="trailing" secondItem="2Ef-fd-VmH" secondAttribute="trailing" id="eoc-jE-hqR"/>
+                            <constraint firstAttribute="bottom" secondItem="hoF-qc-FUS" secondAttribute="bottom" id="hkr-zy-ZnZ"/>
+                            <constraint firstItem="hoF-qc-FUS" firstAttribute="leading" secondItem="2Ef-fd-VmH" secondAttribute="leading" id="i3R-x6-NFv"/>
+                            <constraint firstItem="2Ef-fd-VmH" firstAttribute="trailing" secondItem="5FA-6T-IfN" secondAttribute="trailing" id="k00-m3-JkR"/>
+                            <constraint firstItem="GdL-ES-Ukn" firstAttribute="top" secondItem="33r-YN-vDJ" secondAttribute="bottom" id="mqX-wI-CGF"/>
+                            <constraint firstItem="GdL-ES-Ukn" firstAttribute="top" secondItem="5FA-6T-IfN" secondAttribute="bottom" id="opa-5l-zvq"/>
+                            <constraint firstItem="2Ef-fd-VmH" firstAttribute="trailing" secondItem="xbS-6x-l9B" secondAttribute="trailing" id="uhq-5b-9sb"/>
+                            <constraint firstItem="GdL-ES-Ukn" firstAttribute="bottom" secondItem="2Ef-fd-VmH" secondAttribute="bottom" constant="-12" id="y1G-Dk-N6Q"/>
+                            <constraint firstItem="q8l-ua-OfR" firstAttribute="centerX" secondItem="2Ef-fd-VmH" secondAttribute="centerX" id="zSh-A6-67V"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="betView" destination="xbS-6x-l9B" id="AM6-Pw-Obu"/>
+                        <outlet property="homeView" destination="33r-YN-vDJ" id="cKc-CO-zcq"/>
+                        <outlet property="instructionView" destination="5FA-6T-IfN" id="I3C-Tv-fLM"/>
+                        <outlet property="menuView" destination="GdL-ES-Ukn" id="umw-jo-MLV"/>
+                        <outlet property="optionView" destination="bzS-VV-RhN" id="uVW-SH-Xio"/>
+                        <outlet property="recordLabel" destination="81E-ct-C6w" id="1V6-jr-uG3"/>
+                        <outlet property="titleLabel" destination="EYW-gQ-B3k" id="ded-TZ-L4r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oHL-93-vKK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="893.89312977099235" y="-2.1126760563380285"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="81E-ct-C6w">
+            <size key="intrinsicContentSize" width="93" height="20"/>
+        </designable>
+        <designable name="EYW-gQ-B3k">
+            <size key="intrinsicContentSize" width="146" height="29.333333333333332"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="background_home_image" width="360" height="640"/>
+        <image name="rabbit_go_ahead" width="512" height="512"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

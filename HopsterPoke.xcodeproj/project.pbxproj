@@ -15,6 +15,17 @@
 		0527E7F02BED2709006ECB75 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0527E7EF2BED2709006ECB75 /* Base */; };
 		0527E7F22BED270C006ECB75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0527E7F12BED270C006ECB75 /* Assets.xcassets */; };
 		0527E7F52BED270C006ECB75 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0527E7F42BED270C006ECB75 /* Base */; };
+		05D35D622BEFD93200605C78 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D35D612BEFD93200605C78 /* HomeViewController.swift */; };
+		05D35D642BEFDB8100605C78 /* GangOfThree.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 05D35D632BEFDB8100605C78 /* GangOfThree.ttf */; };
+		05DCE80C2BF04C5B00F97317 /* CurveLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCE80B2BF04C5B00F97317 /* CurveLabel.swift */; };
+		05DCE80E2BF0512300F97317 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCE80D2BF0512300F97317 /* UIColor+Extension.swift */; };
+		05DCE8102BF0602F00F97317 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCE80F2BF0602F00F97317 /* MenuView.swift */; };
+		05DCE8122BF06FC300F97317 /* InstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCE8112BF06FC300F97317 /* InstructionView.swift */; };
+		05DCE8142BF0B44800F97317 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCE8132BF0B44800F97317 /* OptionView.swift */; };
+		05DCE8162BF0B9D100F97317 /* UserInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCE8152BF0B9D100F97317 /* UserInfomation.swift */; };
+		05DCE8182BF0FA2000F97317 /* GameWarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCE8172BF0FA2000F97317 /* GameWarningView.swift */; };
+		05DCE81A2BF105AF00F97317 /* BetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCE8192BF105AF00F97317 /* BetView.swift */; };
+		3FF6CB821A65AA32F9E3CAE0 /* Pods_HopsterPoke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB0A2B7CD2AFC9385AF8204 /* Pods_HopsterPoke.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +38,20 @@
 		0527E7EF2BED2709006ECB75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0527E7F12BED270C006ECB75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0527E7F42BED270C006ECB75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		05D35D612BEFD93200605C78 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		05D35D632BEFDB8100605C78 /* GangOfThree.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GangOfThree.ttf; sourceTree = "<group>"; };
+		05D35D652BEFDBA500605C78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		05DCE80B2BF04C5B00F97317 /* CurveLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurveLabel.swift; sourceTree = "<group>"; };
+		05DCE80D2BF0512300F97317 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		05DCE80F2BF0602F00F97317 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		05DCE8112BF06FC300F97317 /* InstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionView.swift; sourceTree = "<group>"; };
+		05DCE8132BF0B44800F97317 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
+		05DCE8152BF0B9D100F97317 /* UserInfomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfomation.swift; sourceTree = "<group>"; };
+		05DCE8172BF0FA2000F97317 /* GameWarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWarningView.swift; sourceTree = "<group>"; };
+		05DCE8192BF105AF00F97317 /* BetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetView.swift; sourceTree = "<group>"; };
+		15F5220A69B6C51A39B62E86 /* Pods-HopsterPoke.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HopsterPoke.debug.xcconfig"; path = "Target Support Files/Pods-HopsterPoke/Pods-HopsterPoke.debug.xcconfig"; sourceTree = "<group>"; };
+		81DB08E08893CA289D880388 /* Pods-HopsterPoke.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HopsterPoke.release.xcconfig"; path = "Target Support Files/Pods-HopsterPoke/Pods-HopsterPoke.release.xcconfig"; sourceTree = "<group>"; };
+		9AB0A2B7CD2AFC9385AF8204 /* Pods_HopsterPoke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HopsterPoke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FF6CB821A65AA32F9E3CAE0 /* Pods_HopsterPoke.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +71,8 @@
 			children = (
 				0527E7E32BED2709006ECB75 /* HopsterPoke */,
 				0527E7E22BED2709006ECB75 /* Products */,
+				A072DEE7551ED64885BC2EB2 /* Pods */,
+				A1D05A29E5179309A0B0CFEE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,6 +87,8 @@
 		0527E7E32BED2709006ECB75 /* HopsterPoke */ = {
 			isa = PBXGroup;
 			children = (
+				05D35D652BEFDBA500605C78 /* Info.plist */,
+				05D35D632BEFDB8100605C78 /* GangOfThree.ttf */,
 				0527E7E42BED2709006ECB75 /* AppDelegate.swift */,
 				0527E7E62BED2709006ECB75 /* GameScene.sks */,
 				0527E7E82BED2709006ECB75 /* Actions.sks */,
@@ -67,8 +97,34 @@
 				0527E7EE2BED2709006ECB75 /* Main.storyboard */,
 				0527E7F12BED270C006ECB75 /* Assets.xcassets */,
 				0527E7F32BED270C006ECB75 /* LaunchScreen.storyboard */,
+				05D35D612BEFD93200605C78 /* HomeViewController.swift */,
+				05DCE80B2BF04C5B00F97317 /* CurveLabel.swift */,
+				05DCE80D2BF0512300F97317 /* UIColor+Extension.swift */,
+				05DCE80F2BF0602F00F97317 /* MenuView.swift */,
+				05DCE8112BF06FC300F97317 /* InstructionView.swift */,
+				05DCE8132BF0B44800F97317 /* OptionView.swift */,
+				05DCE8152BF0B9D100F97317 /* UserInfomation.swift */,
+				05DCE8172BF0FA2000F97317 /* GameWarningView.swift */,
+				05DCE8192BF105AF00F97317 /* BetView.swift */,
 			);
 			path = HopsterPoke;
+			sourceTree = "<group>";
+		};
+		A072DEE7551ED64885BC2EB2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15F5220A69B6C51A39B62E86 /* Pods-HopsterPoke.debug.xcconfig */,
+				81DB08E08893CA289D880388 /* Pods-HopsterPoke.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A1D05A29E5179309A0B0CFEE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9AB0A2B7CD2AFC9385AF8204 /* Pods_HopsterPoke.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,9 +134,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0527E7F82BED270C006ECB75 /* Build configuration list for PBXNativeTarget "HopsterPoke" */;
 			buildPhases = (
+				077CDCB286EFF57CBE1430F6 /* [CP] Check Pods Manifest.lock */,
 				0527E7DD2BED2709006ECB75 /* Sources */,
 				0527E7DE2BED2709006ECB75 /* Frameworks */,
 				0527E7DF2BED2709006ECB75 /* Resources */,
+				BF78C76307E83F644BF8DACF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05D35D642BEFDB8100605C78 /* GangOfThree.ttf in Resources */,
 				0527E7E72BED2709006ECB75 /* GameScene.sks in Resources */,
 				0527E7F02BED2709006ECB75 /* Base in Resources */,
 				0527E7F22BED270C006ECB75 /* Assets.xcassets in Resources */,
@@ -139,14 +198,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		077CDCB286EFF57CBE1430F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HopsterPoke-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF78C76307E83F644BF8DACF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HopsterPoke/Pods-HopsterPoke-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HopsterPoke/Pods-HopsterPoke-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HopsterPoke/Pods-HopsterPoke-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0527E7DD2BED2709006ECB75 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05DCE8102BF0602F00F97317 /* MenuView.swift in Sources */,
+				05DCE80C2BF04C5B00F97317 /* CurveLabel.swift in Sources */,
 				0527E7EB2BED2709006ECB75 /* GameScene.swift in Sources */,
 				0527E7ED2BED2709006ECB75 /* GameViewController.swift in Sources */,
+				05DCE8182BF0FA2000F97317 /* GameWarningView.swift in Sources */,
+				05DCE8162BF0B9D100F97317 /* UserInfomation.swift in Sources */,
+				05DCE81A2BF105AF00F97317 /* BetView.swift in Sources */,
+				05DCE80E2BF0512300F97317 /* UIColor+Extension.swift in Sources */,
+				05DCE8122BF06FC300F97317 /* InstructionView.swift in Sources */,
 				0527E7E52BED2709006ECB75 /* AppDelegate.swift in Sources */,
+				05DCE8142BF0B44800F97317 /* OptionView.swift in Sources */,
+				05D35D622BEFD93200605C78 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,18 +403,21 @@
 		};
 		0527E7F92BED270C006ECB75 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15F5220A69B6C51A39B62E86 /* Pods-HopsterPoke.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HopsterPoke/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,18 +433,21 @@
 		};
 		0527E7FA2BED270C006ECB75 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81DB08E08893CA289D880388 /* Pods-HopsterPoke.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HopsterPoke/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

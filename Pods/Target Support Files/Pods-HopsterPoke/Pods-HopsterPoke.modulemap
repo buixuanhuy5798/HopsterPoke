@@ -1,0 +1,6 @@
+framework module Pods_HopsterPoke {
+  umbrella header "Pods-HopsterPoke-umbrella.h"
+
+  export *
+  module * { export * }
+}
