@@ -8,7 +8,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     var gameNode: SKNode!
     var backgroundNode: SKNode!
     var rabbitNode: SKNode!
@@ -20,10 +20,13 @@ class GameScene: SKScene {
     var groundHeight: CGFloat = 350
     var groundWidth: CGFloat = 1717
     var groundSpeed: CGFloat = 100
-    let dinoHopForce = 400 as Int
+    let dinoHopForce = 300 as Int
     
     let background: CGFloat = 0
     let foreground: CGFloat = 1
+    
+    //sound effects
+    let jumpSound = SKAction.playSoundFileNamed("arrow_up_down", waitForCompletion: false)
     
     let groundCategory = 1 << 0 as UInt32
     let dinoCategory = 1 << 1 as UInt32
@@ -31,14 +34,20 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
             if let groundPosition = dinoYPosition {
-                if rabbitSprite.position.y <= groundPosition && gameNode.speed > 0 {
-                    rabbitSprite.physicsBody?.applyImpulse(CGVector(dx: 0, dy: dinoHopForce))
+                if rabbitSprite.position.y < 100 {
+                    if rabbitSprite.position.y <= groundPosition && gameNode.speed > 0 {
+                        rabbitSprite.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+                        rabbitSprite.physicsBody?.applyImpulse(CGVector(dx: 0, dy: dinoHopForce))
+                        run(jumpSound)
+                    }
                 }
             }
         }
     }
     
     override func didMove(to view: SKView) {
+//        self.physicsWorld.contactDelegate = self
+        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -12)
         backgroundNode = SKNode()
         backgroundNode.zPosition = background
         createAndMoveGround()
@@ -53,21 +62,22 @@ class GameScene: SKScene {
         gameNode.addChild(backgroundNode)
         gameNode.addChild(rabbitNode)
         self.addChild(gameNode)
-        
-       
+        physicsWorld.contactDelegate = self
+        physicsBody = SKPhysicsBody(edgeLoopFrom: view.bounds)
     }
     
     func createRabbit() {
         let rabbitTexture = SKTexture(imageNamed: "rabbit_go_ahead")
+        rabbitTexture.filteringMode = .nearest
         rabbitSprite = SKSpriteNode()
         rabbitSprite.texture = rabbitTexture
         rabbitSprite.size = CGSize(width: 110, height: 110)
         let physicsBox = CGSize(width: 110, height: 110)
         rabbitSprite.physicsBody?.isDynamic = true
-        rabbitSprite.physicsBody?.mass = 0
+        rabbitSprite.physicsBody?.mass = 5.0
         rabbitSprite.physicsBody = SKPhysicsBody(rectangleOf: physicsBox)
         dinoYPosition = groundHeight + 110
-        rabbitSprite.position = CGPoint(x: -frame.width/2+135, y: -frame.size.height/2 + 400)
+        rabbitSprite.position = CGPoint(x: -frame.width/2+150, y: -frame.size.height/2 + 400)
         rabbitSprite.physicsBody?.categoryBitMask = dinoCategory
         rabbitSprite.physicsBody?.collisionBitMask = groundCategory
         rabbitNode.addChild(rabbitSprite)
@@ -80,10 +90,10 @@ class GameScene: SKScene {
         let groundTexture = SKTexture(imageNamed: "underground_background")
         
         //ground actions
-        let moveGroundLeft = SKAction.moveBy(x: -groundWidth,
-                                             y: 0.0, duration: TimeInterval(screenWidth / groundSpeed))
-        let resetGround = SKAction.moveBy(x: groundWidth, y: 0.0, duration: 0.0)
-        let groundLoop = SKAction.sequence([moveGroundLeft, resetGround])
+//        let moveGroundLeft = SKAction.moveBy(x: -groundWidth,
+//                                             y: 0.0, duration: TimeInterval(screenWidth / groundSpeed))
+//        let resetGround = SKAction.moveBy(x: groundWidth, y: 0.0, duration: 0.0)
+//        let groundLoop = SKAction.sequence([moveGroundLeft, resetGround])
         
         //ground nodes
         let numberOfGroundNodes = 2

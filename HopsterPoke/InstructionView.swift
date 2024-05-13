@@ -106,12 +106,14 @@ class InstructionView: UIView {
     }
     
     @objc private func handleTapNextButton() {
+        SoundService.shared.playButtonTapSound()
         if currentPage < 3 {
             currentPage += 1
         }
     }
     
     @objc private func handleTapBackButton() {
+        SoundService.shared.playButtonTapSound()
         if currentPage > 1 {
             currentPage -= 1
         }

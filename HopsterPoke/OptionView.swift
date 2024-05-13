@@ -96,12 +96,19 @@ class OptionView: UIView {
     }
     
     @objc private func handleTapSoundButton() {
+        SoundService.shared.playButtonTapSound()
         UserInfomation.turnOnSound.toggle()
         updateStateButton()
     }
     
     @objc private func handleTapNotiButton() {
+        SoundService.shared.playButtonTapSound()
         UserInfomation.turnOnDailyNoti.toggle()
+        if UserInfomation.turnOnDailyNoti {
+            NotificationService.shared.scheduleLocal()
+        } else {
+            NotificationService.shared.turnOfNoti()
+        }
         updateStateButton()
     }
 }

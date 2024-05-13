@@ -39,6 +39,10 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="699"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uD-2f-0DA" customClass="DailyCheckinView" customModule="HopsterPoke" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="59" width="393" height="699"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5FA-6T-IfN" customClass="InstructionView" customModule="HopsterPoke" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="59" width="393" height="699"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -110,6 +114,7 @@
                             <constraint firstItem="2Ef-fd-VmH" firstAttribute="trailing" secondItem="bzS-VV-RhN" secondAttribute="trailing" id="AeW-If-Uh7"/>
                             <constraint firstItem="33r-YN-vDJ" firstAttribute="leading" secondItem="2Ef-fd-VmH" secondAttribute="leading" id="Bfd-5c-lfx"/>
                             <constraint firstItem="xbS-6x-l9B" firstAttribute="leading" secondItem="2Ef-fd-VmH" secondAttribute="leading" id="FJW-HJ-ntN"/>
+                            <constraint firstItem="4uD-2f-0DA" firstAttribute="leading" secondItem="2Ef-fd-VmH" secondAttribute="leading" id="H0n-yz-WGa"/>
                             <constraint firstItem="33r-YN-vDJ" firstAttribute="top" secondItem="n5Y-cA-4AM" secondAttribute="top" id="KS9-19-SGP"/>
                             <constraint firstItem="5FA-6T-IfN" firstAttribute="top" secondItem="2Ef-fd-VmH" secondAttribute="top" id="KkK-VN-NIS"/>
                             <constraint firstItem="2Ef-fd-VmH" firstAttribute="trailing" secondItem="33r-YN-vDJ" secondAttribute="trailing" id="OSz-RH-4py"/>
@@ -125,13 +130,17 @@
                             <constraint firstItem="2Ef-fd-VmH" firstAttribute="trailing" secondItem="5FA-6T-IfN" secondAttribute="trailing" id="k00-m3-JkR"/>
                             <constraint firstItem="GdL-ES-Ukn" firstAttribute="top" secondItem="33r-YN-vDJ" secondAttribute="bottom" id="mqX-wI-CGF"/>
                             <constraint firstItem="GdL-ES-Ukn" firstAttribute="top" secondItem="5FA-6T-IfN" secondAttribute="bottom" id="opa-5l-zvq"/>
+                            <constraint firstItem="4uD-2f-0DA" firstAttribute="top" secondItem="2Ef-fd-VmH" secondAttribute="top" id="p2l-u9-3ie"/>
                             <constraint firstItem="2Ef-fd-VmH" firstAttribute="trailing" secondItem="xbS-6x-l9B" secondAttribute="trailing" id="uhq-5b-9sb"/>
+                            <constraint firstItem="GdL-ES-Ukn" firstAttribute="top" secondItem="4uD-2f-0DA" secondAttribute="bottom" id="wnV-uo-IwM"/>
                             <constraint firstItem="GdL-ES-Ukn" firstAttribute="bottom" secondItem="2Ef-fd-VmH" secondAttribute="bottom" constant="-12" id="y1G-Dk-N6Q"/>
                             <constraint firstItem="q8l-ua-OfR" firstAttribute="centerX" secondItem="2Ef-fd-VmH" secondAttribute="centerX" id="zSh-A6-67V"/>
+                            <constraint firstItem="2Ef-fd-VmH" firstAttribute="trailing" secondItem="4uD-2f-0DA" secondAttribute="trailing" id="zgq-Ho-KxJ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="betView" destination="xbS-6x-l9B" id="AM6-Pw-Obu"/>
+                        <outlet property="dailyCheckinView" destination="4uD-2f-0DA" id="HRI-TL-Syu"/>
                         <outlet property="homeView" destination="33r-YN-vDJ" id="cKc-CO-zcq"/>
                         <outlet property="instructionView" destination="5FA-6T-IfN" id="I3C-Tv-fLM"/>
                         <outlet property="menuView" destination="GdL-ES-Ukn" id="umw-jo-MLV"/>

@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var dailyCheckinView: DailyCheckinView!
     @IBOutlet weak var betView: BetView!
     @IBOutlet weak var optionView: OptionView!
     @IBOutlet weak var menuView: MenuView!
@@ -25,6 +26,7 @@ class HomeViewController: UIViewController {
         titleLabel.textColor = UIColor(hexString: "0655AB")
         homeView.isHidden = false
         betView.tag = MenuButton.playGame.rawValue
+        dailyCheckinView.tag = MenuButton.daily.rawValue
         optionView.tag = MenuButton.setting.rawValue
         instructionView.tag = MenuButton.instructions.rawValue
         homeView.tag = MenuButton.home.rawValue
@@ -40,6 +42,7 @@ class HomeViewController: UIViewController {
             self?.present(vc, animated: true)
         }
         if UserInfomation.firstLauchApp {
+//            NotificationService.shared.scheduleLocal()
             let descriptionView = GameWarningView()
             view.addSubview(descriptionView)
             descriptionView.snp.makeConstraints {
@@ -49,7 +52,7 @@ class HomeViewController: UIViewController {
     }
     
     private func updateView(state: MenuButton) {
-        [betView, optionView, instructionView, homeView].forEach {
+        [betView, optionView, instructionView, dailyCheckinView, homeView].forEach {
             if state == .instructions {
                 instructionView.resetContent()
             }

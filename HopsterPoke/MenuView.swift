@@ -89,12 +89,14 @@ class MenuView: UIView {
         addSubview(stackView)
         stackView.snp.makeConstraints { $0.edges.equalToSuperview() }
         [playGameButton, settingButton, instructionsButton, dailyButton, homeButton].forEach {
+
             $0.addTarget(self, action: #selector(handleTapButton), for: .touchUpInside)
         }
         updateMenu()
     }
     
     @objc private func handleTapButton(_ sender: UIButton) {
+        SoundService.shared.playButtonTapSound()
         if let state = MenuButton(rawValue: sender.tag) {
             currentSelection = state
             didChangeTab?(currentSelection)

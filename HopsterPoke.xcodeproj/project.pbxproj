@@ -26,6 +26,13 @@
 		05DCE8182BF0FA2000F97317 /* GameWarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCE8172BF0FA2000F97317 /* GameWarningView.swift */; };
 		05DCE81A2BF105AF00F97317 /* BetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCE8192BF105AF00F97317 /* BetView.swift */; };
 		3FF6CB821A65AA32F9E3CAE0 /* Pods_HopsterPoke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB0A2B7CD2AFC9385AF8204 /* Pods_HopsterPoke.framework */; };
+		F05CAF432BF1A34400AF90D2 /* SoundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CAF422BF1A34400AF90D2 /* SoundService.swift */; };
+		F05CAF482BF1B23700AF90D2 /* button_tap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F05CAF472BF1B23700AF90D2 /* button_tap.mp3 */; };
+		F05CAF4A2BF1B6AC00AF90D2 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CAF492BF1B6AC00AF90D2 /* NotificationService.swift */; };
+		F05CAF4E2BF1C00800AF90D2 /* DailyCheckinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CAF4D2BF1C00800AF90D2 /* DailyCheckinView.swift */; };
+		F05CAF542BF1C68600AF90D2 /* arrow_up_down.wav in Resources */ = {isa = PBXBuildFile; fileRef = F05CAF532BF1C68600AF90D2 /* arrow_up_down.wav */; };
+		F05CAF572BF20A4400AF90D2 /* DailyCheckinCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CAF552BF20A4400AF90D2 /* DailyCheckinCellCollectionViewCell.swift */; };
+		F05CAF582BF20A4400AF90D2 /* DailyCheckinCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F05CAF562BF20A4400AF90D2 /* DailyCheckinCellCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +59,13 @@
 		15F5220A69B6C51A39B62E86 /* Pods-HopsterPoke.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HopsterPoke.debug.xcconfig"; path = "Target Support Files/Pods-HopsterPoke/Pods-HopsterPoke.debug.xcconfig"; sourceTree = "<group>"; };
 		81DB08E08893CA289D880388 /* Pods-HopsterPoke.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HopsterPoke.release.xcconfig"; path = "Target Support Files/Pods-HopsterPoke/Pods-HopsterPoke.release.xcconfig"; sourceTree = "<group>"; };
 		9AB0A2B7CD2AFC9385AF8204 /* Pods_HopsterPoke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HopsterPoke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F05CAF422BF1A34400AF90D2 /* SoundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundService.swift; sourceTree = "<group>"; };
+		F05CAF472BF1B23700AF90D2 /* button_tap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = button_tap.mp3; sourceTree = "<group>"; };
+		F05CAF492BF1B6AC00AF90D2 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		F05CAF4D2BF1C00800AF90D2 /* DailyCheckinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCheckinView.swift; sourceTree = "<group>"; };
+		F05CAF532BF1C68600AF90D2 /* arrow_up_down.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = arrow_up_down.wav; sourceTree = "<group>"; };
+		F05CAF552BF20A4400AF90D2 /* DailyCheckinCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCheckinCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		F05CAF562BF20A4400AF90D2 /* DailyCheckinCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyCheckinCellCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +101,8 @@
 		0527E7E32BED2709006ECB75 /* HopsterPoke */ = {
 			isa = PBXGroup;
 			children = (
+				F05CAF532BF1C68600AF90D2 /* arrow_up_down.wav */,
+				F05CAF4B2BF1B6B300AF90D2 /* Service */,
 				05D35D652BEFDBA500605C78 /* Info.plist */,
 				05D35D632BEFDB8100605C78 /* GangOfThree.ttf */,
 				0527E7E42BED2709006ECB75 /* AppDelegate.swift */,
@@ -106,6 +122,9 @@
 				05DCE8152BF0B9D100F97317 /* UserInfomation.swift */,
 				05DCE8172BF0FA2000F97317 /* GameWarningView.swift */,
 				05DCE8192BF105AF00F97317 /* BetView.swift */,
+				F05CAF4D2BF1C00800AF90D2 /* DailyCheckinView.swift */,
+				F05CAF552BF20A4400AF90D2 /* DailyCheckinCellCollectionViewCell.swift */,
+				F05CAF562BF20A4400AF90D2 /* DailyCheckinCellCollectionViewCell.xib */,
 			);
 			path = HopsterPoke;
 			sourceTree = "<group>";
@@ -125,6 +144,32 @@
 				9AB0A2B7CD2AFC9385AF8204 /* Pods_HopsterPoke.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F05CAF442BF1A38100AF90D2 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				F05CAF472BF1B23700AF90D2 /* button_tap.mp3 */,
+				F05CAF422BF1A34400AF90D2 /* SoundService.swift */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		F05CAF4B2BF1B6B300AF90D2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F05CAF4C2BF1B6B900AF90D2 /* Notification */,
+				F05CAF442BF1A38100AF90D2 /* Sounds */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F05CAF4C2BF1B6B900AF90D2 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				F05CAF492BF1B6AC00AF90D2 /* NotificationService.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,11 +233,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				05D35D642BEFDB8100605C78 /* GangOfThree.ttf in Resources */,
+				F05CAF482BF1B23700AF90D2 /* button_tap.mp3 in Resources */,
 				0527E7E72BED2709006ECB75 /* GameScene.sks in Resources */,
 				0527E7F02BED2709006ECB75 /* Base in Resources */,
+				F05CAF542BF1C68600AF90D2 /* arrow_up_down.wav in Resources */,
 				0527E7F22BED270C006ECB75 /* Assets.xcassets in Resources */,
 				0527E7E92BED2709006ECB75 /* Actions.sks in Resources */,
 				0527E7F52BED270C006ECB75 /* Base in Resources */,
+				F05CAF582BF20A4400AF90D2 /* DailyCheckinCellCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,9 +293,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F05CAF432BF1A34400AF90D2 /* SoundService.swift in Sources */,
 				05DCE8102BF0602F00F97317 /* MenuView.swift in Sources */,
+				F05CAF572BF20A4400AF90D2 /* DailyCheckinCellCollectionViewCell.swift in Sources */,
+				F05CAF4A2BF1B6AC00AF90D2 /* NotificationService.swift in Sources */,
 				05DCE80C2BF04C5B00F97317 /* CurveLabel.swift in Sources */,
 				0527E7EB2BED2709006ECB75 /* GameScene.swift in Sources */,
+				F05CAF4E2BF1C00800AF90D2 /* DailyCheckinView.swift in Sources */,
 				0527E7ED2BED2709006ECB75 /* GameViewController.swift in Sources */,
 				05DCE8182BF0FA2000F97317 /* GameWarningView.swift in Sources */,
 				05DCE8162BF0B9D100F97317 /* UserInfomation.swift in Sources */,

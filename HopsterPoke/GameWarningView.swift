@@ -70,6 +70,7 @@ class GameWarningView: UIView {
     }
     
     @objc private func handleTapOkeButton() {
+        SoundService.shared.playButtonTapSound()
         UserInfomation.firstLauchApp = false
         UIView.animate(withDuration: 0.5, animations: {
             self.alpha = 0.0
