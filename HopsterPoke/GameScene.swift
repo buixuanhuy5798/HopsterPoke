@@ -80,6 +80,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
     }
     
+    func didBegin(_ contact: SKPhysicsContact) {
+        if(hitCactus(contact)){
+            print("DIEEEE")
+        }
+    }
+    
+    func hitCactus(_ contact: SKPhysicsContact) -> Bool {
+        return contact.bodyA.categoryBitMask & cactusCategory == cactusCategory ||
+            contact.bodyB.categoryBitMask & cactusCategory == cactusCategory
+    }
+    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         if (gameNode.speed > 0) {
@@ -168,6 +179,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         dinoYPosition = groundHeight + 64
         rabbitSprite.position = CGPoint(x: -frame.width/2+90, y: -frame.height/2 + groundHeight + 16)
         rabbitSprite.physicsBody?.categoryBitMask = dinoCategory
+        rabbitSprite.physicsBody?.contactTestBitMask = cactusCategory
         rabbitSprite.physicsBody?.collisionBitMask = groundCategory
         rabbitNode.addChild(rabbitSprite)
     }
@@ -185,8 +197,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let resetGround = SKAction.moveBy(x: groundWidth, y: 0.0, duration: 0.0)
         let groundLoop = SKAction.sequence([moveGroundLeft, resetGround])
         
-        
-        
         //ground nodes
         let numberOfGroundNodes = 2
         
@@ -200,10 +210,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let skyHeight = frame.height - groundHeight
         let skyWidth = skyHeight * 4937/3472
-        let moveSkyLeft = SKAction.moveBy(x: -skyWidth,
-                                          y: 0.0, duration: TimeInterval(screenWidth / groundSpeed))
-        let resetSky = SKAction.moveBy(x: skyWidth, y: 0.0, duration: 0.0)
-        let skyLoop = SKAction.sequence([moveSkyLeft, resetSky])
+//        let moveSkyLeft = SKAction.moveBy(x: -skyWidth,
+//                                          y: 0.0, duration: TimeInterval(screenWidth / groundSpeed))
+//        let resetSky = SKAction.moveBy(x: skyWidth, y: 0.0, duration: 0.0)
+//        let skyLoop = SKAction.sequence([moveSkyLeft, resetSky])
         
         for i in 0 ..< numberOfGroundNodes {
             let node = SKSpriteNode(texture: skyTexture)
