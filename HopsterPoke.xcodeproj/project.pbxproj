@@ -33,6 +33,9 @@
 		05F6290A2BF30AF00028EFAE /* flowerpot1.png in Resources */ = {isa = PBXBuildFile; fileRef = 05F629092BF30AF00028EFAE /* flowerpot1.png */; };
 		05F6290C2BF30AF80028EFAE /* flowerpot2.png in Resources */ = {isa = PBXBuildFile; fileRef = 05F6290B2BF30AF80028EFAE /* flowerpot2.png */; };
 		05F629102BF313100028EFAE /* MiniGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F6290F2BF313100028EFAE /* MiniGameController.swift */; };
+		05FC55C02BF3B5DF00DDE126 /* flowerpot3.png in Resources */ = {isa = PBXBuildFile; fileRef = 05FC55BF2BF3B5DF00DDE126 /* flowerpot3.png */; };
+		05FC55C22BF3B5E600DDE126 /* flowerpot4.png in Resources */ = {isa = PBXBuildFile; fileRef = 05FC55C12BF3B5E600DDE126 /* flowerpot4.png */; };
+		05FC55C42BF3B5EC00DDE126 /* flowerpot5.png in Resources */ = {isa = PBXBuildFile; fileRef = 05FC55C32BF3B5EC00DDE126 /* flowerpot5.png */; };
 		3FF6CB821A65AA32F9E3CAE0 /* Pods_HopsterPoke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB0A2B7CD2AFC9385AF8204 /* Pods_HopsterPoke.framework */; };
 		F05CAF432BF1A34400AF90D2 /* SoundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CAF422BF1A34400AF90D2 /* SoundService.swift */; };
 		F05CAF482BF1B23700AF90D2 /* button_tap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F05CAF472BF1B23700AF90D2 /* button_tap.mp3 */; };
@@ -70,6 +73,9 @@
 		05F629092BF30AF00028EFAE /* flowerpot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flowerpot1.png; sourceTree = "<group>"; };
 		05F6290B2BF30AF80028EFAE /* flowerpot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flowerpot2.png; sourceTree = "<group>"; };
 		05F6290F2BF313100028EFAE /* MiniGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGameController.swift; sourceTree = "<group>"; };
+		05FC55BF2BF3B5DF00DDE126 /* flowerpot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flowerpot3.png; sourceTree = "<group>"; };
+		05FC55C12BF3B5E600DDE126 /* flowerpot4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flowerpot4.png; sourceTree = "<group>"; };
+		05FC55C32BF3B5EC00DDE126 /* flowerpot5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flowerpot5.png; sourceTree = "<group>"; };
 		15F5220A69B6C51A39B62E86 /* Pods-HopsterPoke.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HopsterPoke.debug.xcconfig"; path = "Target Support Files/Pods-HopsterPoke/Pods-HopsterPoke.debug.xcconfig"; sourceTree = "<group>"; };
 		81DB08E08893CA289D880388 /* Pods-HopsterPoke.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HopsterPoke.release.xcconfig"; path = "Target Support Files/Pods-HopsterPoke/Pods-HopsterPoke.release.xcconfig"; sourceTree = "<group>"; };
 		9AB0A2B7CD2AFC9385AF8204 /* Pods_HopsterPoke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HopsterPoke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +155,9 @@
 		05F629022BF2FD0D0028EFAE /* cacti */ = {
 			isa = PBXGroup;
 			children = (
+				05FC55C32BF3B5EC00DDE126 /* flowerpot5.png */,
+				05FC55C12BF3B5E600DDE126 /* flowerpot4.png */,
+				05FC55BF2BF3B5DF00DDE126 /* flowerpot3.png */,
 				05F6290B2BF30AF80028EFAE /* flowerpot2.png */,
 				05F629092BF30AF00028EFAE /* flowerpot1.png */,
 			);
@@ -258,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05FC55C22BF3B5E600DDE126 /* flowerpot4.png in Resources */,
 				05D35D642BEFDB8100605C78 /* GangOfThree.ttf in Resources */,
 				05F6290A2BF30AF00028EFAE /* flowerpot1.png in Resources */,
 				F05CAF482BF1B23700AF90D2 /* button_tap.mp3 in Resources */,
@@ -267,7 +277,9 @@
 				F05CAF542BF1C68600AF90D2 /* arrow_up_down.wav in Resources */,
 				0527E7F22BED270C006ECB75 /* Assets.xcassets in Resources */,
 				0527E7E92BED2709006ECB75 /* Actions.sks in Resources */,
+				05FC55C42BF3B5EC00DDE126 /* flowerpot5.png in Resources */,
 				0527E7F52BED270C006ECB75 /* Base in Resources */,
+				05FC55C02BF3B5DF00DDE126 /* flowerpot3.png in Resources */,
 				05F6290C2BF30AF80028EFAE /* flowerpot2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
