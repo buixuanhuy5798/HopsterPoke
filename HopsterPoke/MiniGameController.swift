@@ -21,6 +21,7 @@ class MiniGameController: UIViewController {
     @IBOutlet weak var greenImageView: UIImageView!
     @IBOutlet weak var yellowImageView: UIImageView!
     var random = [1000, 1001, 1002, 1003]
+    var tap = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,9 @@ class MiniGameController: UIViewController {
         yellowImageView.tag = MiniGameItem.yellow.rawValue
         greenImageView.tag = MiniGameItem.green.rawValue
         [purpleImageView, blueImageView, yellowImageView, greenImageView].forEach {
-            $0.alpha = 0
+            $0?.alpha = 0
+            $0?.isUserInteractionEnabled = false
+            $0?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapImage(sender:))))
         }
         random = random.shuffled()
         print(random)
@@ -38,6 +41,35 @@ class MiniGameController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animationDisplay()
+    }
+    
+    func resetAll() {
+        [purpleImageView, blueImageView, yellowImageView, greenImageView].forEach {
+            $0?.alpha = 0
+            $0?.isUserInteractionEnabled = false
+        }
+        random = random.shuffled()
+        tap = []
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.animationDisplay()
+        }
+    }
+    
+    @objc private func handleTapImage(sender: UITapGestureRecognizer) {
+        if let tag = sender.view?.tag {
+            if !tap.contains(tag) {
+                sender.view?.alpha = 0.5
+                tap.append(tag)
+                print(tap)
+                if tap.count == 4 {
+                    if tap == random {
+                        resetAll()
+                    } else {
+                        print("LOSE")
+                    }
+                }
+            }
+        }
     }
     
     private func animationDisplay() {
@@ -52,6 +84,9 @@ class MiniGameController: UIViewController {
                 } completion: { _ in
                     UIView.animate(withDuration: 0.5) {
                         self.displayView(tag: self.random[3])
+                        [self.purpleImageView, self.blueImageView, self.yellowImageView, self.greenImageView].forEach {
+                            $0?.isUserInteractionEnabled = true
+                        }
                     }
                 }
             }
