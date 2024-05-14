@@ -15,6 +15,11 @@
 		0527E7F02BED2709006ECB75 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0527E7EF2BED2709006ECB75 /* Base */; };
 		0527E7F22BED270C006ECB75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0527E7F12BED270C006ECB75 /* Assets.xcassets */; };
 		0527E7F52BED270C006ECB75 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0527E7F42BED270C006ECB75 /* Base */; };
+		05D327FA2BF24E8C00905592 /* DailyCheckinCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D327F82BF24E8C00905592 /* DailyCheckinCellTableViewCell.swift */; };
+		05D327FB2BF24E8C00905592 /* DailyCheckinCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D327F92BF24E8C00905592 /* DailyCheckinCellTableViewCell.xib */; };
+		05D327FD2BF264FD00905592 /* TouchControlInputNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D327FC2BF264FD00905592 /* TouchControlInputNode.swift */; };
+		05D327FF2BF2688400905592 /* ControlInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D327FE2BF2688400905592 /* ControlInputDelegate.swift */; };
+		05D328012BF274CE00905592 /* PlayerControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D328002BF274CE00905592 /* PlayerControlComponent.swift */; };
 		05D35D622BEFD93200605C78 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D35D612BEFD93200605C78 /* HomeViewController.swift */; };
 		05D35D642BEFDB8100605C78 /* GangOfThree.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 05D35D632BEFDB8100605C78 /* GangOfThree.ttf */; };
 		05DCE80C2BF04C5B00F97317 /* CurveLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCE80B2BF04C5B00F97317 /* CurveLabel.swift */; };
@@ -25,14 +30,15 @@
 		05DCE8162BF0B9D100F97317 /* UserInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCE8152BF0B9D100F97317 /* UserInfomation.swift */; };
 		05DCE8182BF0FA2000F97317 /* GameWarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCE8172BF0FA2000F97317 /* GameWarningView.swift */; };
 		05DCE81A2BF105AF00F97317 /* BetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCE8192BF105AF00F97317 /* BetView.swift */; };
+		05F6290A2BF30AF00028EFAE /* flowerpot1.png in Resources */ = {isa = PBXBuildFile; fileRef = 05F629092BF30AF00028EFAE /* flowerpot1.png */; };
+		05F6290C2BF30AF80028EFAE /* flowerpot2.png in Resources */ = {isa = PBXBuildFile; fileRef = 05F6290B2BF30AF80028EFAE /* flowerpot2.png */; };
+		05F629102BF313100028EFAE /* MiniGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F6290F2BF313100028EFAE /* MiniGameController.swift */; };
 		3FF6CB821A65AA32F9E3CAE0 /* Pods_HopsterPoke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB0A2B7CD2AFC9385AF8204 /* Pods_HopsterPoke.framework */; };
 		F05CAF432BF1A34400AF90D2 /* SoundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CAF422BF1A34400AF90D2 /* SoundService.swift */; };
 		F05CAF482BF1B23700AF90D2 /* button_tap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F05CAF472BF1B23700AF90D2 /* button_tap.mp3 */; };
 		F05CAF4A2BF1B6AC00AF90D2 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CAF492BF1B6AC00AF90D2 /* NotificationService.swift */; };
-		F05CAF4E2BF1C00800AF90D2 /* DailyCheckinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CAF4D2BF1C00800AF90D2 /* DailyCheckinView.swift */; };
+		F05CAF4E2BF1C00800AF90D2 /* DailyCheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CAF4D2BF1C00800AF90D2 /* DailyCheckinViewController.swift */; };
 		F05CAF542BF1C68600AF90D2 /* arrow_up_down.wav in Resources */ = {isa = PBXBuildFile; fileRef = F05CAF532BF1C68600AF90D2 /* arrow_up_down.wav */; };
-		F05CAF572BF20A4400AF90D2 /* DailyCheckinCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CAF552BF20A4400AF90D2 /* DailyCheckinCellCollectionViewCell.swift */; };
-		F05CAF582BF20A4400AF90D2 /* DailyCheckinCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F05CAF562BF20A4400AF90D2 /* DailyCheckinCellCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +51,11 @@
 		0527E7EF2BED2709006ECB75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0527E7F12BED270C006ECB75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0527E7F42BED270C006ECB75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		05D327F82BF24E8C00905592 /* DailyCheckinCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCheckinCellTableViewCell.swift; sourceTree = "<group>"; };
+		05D327F92BF24E8C00905592 /* DailyCheckinCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyCheckinCellTableViewCell.xib; sourceTree = "<group>"; };
+		05D327FC2BF264FD00905592 /* TouchControlInputNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchControlInputNode.swift; sourceTree = "<group>"; };
+		05D327FE2BF2688400905592 /* ControlInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlInputDelegate.swift; sourceTree = "<group>"; };
+		05D328002BF274CE00905592 /* PlayerControlComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlComponent.swift; sourceTree = "<group>"; };
 		05D35D612BEFD93200605C78 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		05D35D632BEFDB8100605C78 /* GangOfThree.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GangOfThree.ttf; sourceTree = "<group>"; };
 		05D35D652BEFDBA500605C78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -56,16 +67,17 @@
 		05DCE8152BF0B9D100F97317 /* UserInfomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfomation.swift; sourceTree = "<group>"; };
 		05DCE8172BF0FA2000F97317 /* GameWarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWarningView.swift; sourceTree = "<group>"; };
 		05DCE8192BF105AF00F97317 /* BetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetView.swift; sourceTree = "<group>"; };
+		05F629092BF30AF00028EFAE /* flowerpot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flowerpot1.png; sourceTree = "<group>"; };
+		05F6290B2BF30AF80028EFAE /* flowerpot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flowerpot2.png; sourceTree = "<group>"; };
+		05F6290F2BF313100028EFAE /* MiniGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGameController.swift; sourceTree = "<group>"; };
 		15F5220A69B6C51A39B62E86 /* Pods-HopsterPoke.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HopsterPoke.debug.xcconfig"; path = "Target Support Files/Pods-HopsterPoke/Pods-HopsterPoke.debug.xcconfig"; sourceTree = "<group>"; };
 		81DB08E08893CA289D880388 /* Pods-HopsterPoke.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HopsterPoke.release.xcconfig"; path = "Target Support Files/Pods-HopsterPoke/Pods-HopsterPoke.release.xcconfig"; sourceTree = "<group>"; };
 		9AB0A2B7CD2AFC9385AF8204 /* Pods_HopsterPoke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HopsterPoke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05CAF422BF1A34400AF90D2 /* SoundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundService.swift; sourceTree = "<group>"; };
 		F05CAF472BF1B23700AF90D2 /* button_tap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = button_tap.mp3; sourceTree = "<group>"; };
 		F05CAF492BF1B6AC00AF90D2 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
-		F05CAF4D2BF1C00800AF90D2 /* DailyCheckinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCheckinView.swift; sourceTree = "<group>"; };
+		F05CAF4D2BF1C00800AF90D2 /* DailyCheckinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCheckinViewController.swift; sourceTree = "<group>"; };
 		F05CAF532BF1C68600AF90D2 /* arrow_up_down.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = arrow_up_down.wav; sourceTree = "<group>"; };
-		F05CAF552BF20A4400AF90D2 /* DailyCheckinCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCheckinCellCollectionViewCell.swift; sourceTree = "<group>"; };
-		F05CAF562BF20A4400AF90D2 /* DailyCheckinCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyCheckinCellCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +113,7 @@
 		0527E7E32BED2709006ECB75 /* HopsterPoke */ = {
 			isa = PBXGroup;
 			children = (
+				05F629022BF2FD0D0028EFAE /* cacti */,
 				F05CAF532BF1C68600AF90D2 /* arrow_up_down.wav */,
 				F05CAF4B2BF1B6B300AF90D2 /* Service */,
 				05D35D652BEFDBA500605C78 /* Info.plist */,
@@ -122,11 +135,24 @@
 				05DCE8152BF0B9D100F97317 /* UserInfomation.swift */,
 				05DCE8172BF0FA2000F97317 /* GameWarningView.swift */,
 				05DCE8192BF105AF00F97317 /* BetView.swift */,
-				F05CAF4D2BF1C00800AF90D2 /* DailyCheckinView.swift */,
-				F05CAF552BF20A4400AF90D2 /* DailyCheckinCellCollectionViewCell.swift */,
-				F05CAF562BF20A4400AF90D2 /* DailyCheckinCellCollectionViewCell.xib */,
+				F05CAF4D2BF1C00800AF90D2 /* DailyCheckinViewController.swift */,
+				05D327F82BF24E8C00905592 /* DailyCheckinCellTableViewCell.swift */,
+				05D327F92BF24E8C00905592 /* DailyCheckinCellTableViewCell.xib */,
+				05D327FC2BF264FD00905592 /* TouchControlInputNode.swift */,
+				05D327FE2BF2688400905592 /* ControlInputDelegate.swift */,
+				05D328002BF274CE00905592 /* PlayerControlComponent.swift */,
+				05F6290F2BF313100028EFAE /* MiniGameController.swift */,
 			);
 			path = HopsterPoke;
+			sourceTree = "<group>";
+		};
+		05F629022BF2FD0D0028EFAE /* cacti */ = {
+			isa = PBXGroup;
+			children = (
+				05F6290B2BF30AF80028EFAE /* flowerpot2.png */,
+				05F629092BF30AF00028EFAE /* flowerpot1.png */,
+			);
+			path = cacti;
 			sourceTree = "<group>";
 		};
 		A072DEE7551ED64885BC2EB2 /* Pods */ = {
@@ -233,14 +259,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				05D35D642BEFDB8100605C78 /* GangOfThree.ttf in Resources */,
+				05F6290A2BF30AF00028EFAE /* flowerpot1.png in Resources */,
 				F05CAF482BF1B23700AF90D2 /* button_tap.mp3 in Resources */,
 				0527E7E72BED2709006ECB75 /* GameScene.sks in Resources */,
+				05D327FB2BF24E8C00905592 /* DailyCheckinCellTableViewCell.xib in Resources */,
 				0527E7F02BED2709006ECB75 /* Base in Resources */,
 				F05CAF542BF1C68600AF90D2 /* arrow_up_down.wav in Resources */,
 				0527E7F22BED270C006ECB75 /* Assets.xcassets in Resources */,
 				0527E7E92BED2709006ECB75 /* Actions.sks in Resources */,
 				0527E7F52BED270C006ECB75 /* Base in Resources */,
-				F05CAF582BF20A4400AF90D2 /* DailyCheckinCellCollectionViewCell.xib in Resources */,
+				05F6290C2BF30AF80028EFAE /* flowerpot2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,15 +323,19 @@
 			files = (
 				F05CAF432BF1A34400AF90D2 /* SoundService.swift in Sources */,
 				05DCE8102BF0602F00F97317 /* MenuView.swift in Sources */,
-				F05CAF572BF20A4400AF90D2 /* DailyCheckinCellCollectionViewCell.swift in Sources */,
 				F05CAF4A2BF1B6AC00AF90D2 /* NotificationService.swift in Sources */,
 				05DCE80C2BF04C5B00F97317 /* CurveLabel.swift in Sources */,
 				0527E7EB2BED2709006ECB75 /* GameScene.swift in Sources */,
-				F05CAF4E2BF1C00800AF90D2 /* DailyCheckinView.swift in Sources */,
+				F05CAF4E2BF1C00800AF90D2 /* DailyCheckinViewController.swift in Sources */,
+				05F629102BF313100028EFAE /* MiniGameController.swift in Sources */,
 				0527E7ED2BED2709006ECB75 /* GameViewController.swift in Sources */,
+				05D327FF2BF2688400905592 /* ControlInputDelegate.swift in Sources */,
 				05DCE8182BF0FA2000F97317 /* GameWarningView.swift in Sources */,
 				05DCE8162BF0B9D100F97317 /* UserInfomation.swift in Sources */,
+				05D327FA2BF24E8C00905592 /* DailyCheckinCellTableViewCell.swift in Sources */,
+				05D327FD2BF264FD00905592 /* TouchControlInputNode.swift in Sources */,
 				05DCE81A2BF105AF00F97317 /* BetView.swift in Sources */,
+				05D328012BF274CE00905592 /* PlayerControlComponent.swift in Sources */,
 				05DCE80E2BF0512300F97317 /* UIColor+Extension.swift in Sources */,
 				05DCE8122BF06FC300F97317 /* InstructionView.swift in Sources */,
 				0527E7E52BED2709006ECB75 /* AppDelegate.swift in Sources */,

@@ -36,4 +36,13 @@ struct UserInfomation {
     
     @UserDefault("turn_on_daily_noti", defaultValue: true)
     static var turnOnDailyNoti: Bool
+    
+    @UserDefault("daily_checkin_count", defaultValue: 0)
+    static var dailyCheckinCount: Int
+    
+    @UserDefault("number_of_carrots", defaultValue: 0)
+    static var numberOfCarrots: Int
+    
+    @UserDefault("last_time_checkin", defaultValue: nil)
+    static var lastTimeCheckin: Date?
 }

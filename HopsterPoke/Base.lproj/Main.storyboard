@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wD5-BH-blq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yx4-No-6QC">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
@@ -39,7 +39,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="699"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uD-2f-0DA" customClass="DailyCheckinView" customModule="HopsterPoke" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uD-2f-0DA">
                                 <rect key="frame" x="0.0" y="59" width="393" height="699"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -153,6 +153,75 @@
             </objects>
             <point key="canvasLocation" x="893.89312977099235" y="-2.1126760563380285"/>
         </scene>
+        <!--Mini Game Controller-->
+        <scene sceneID="LmG-an-yoT">
+            <objects>
+                <viewController id="yx4-No-6QC" customClass="MiniGameController" customModule="HopsterPoke" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6lR-bL-9Nc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="minigame_background" translatesAutoresizingMaskIntoConstraints="NO" id="J6s-EI-4aw">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="7on-ZM-Poh">
+                                <rect key="frame" x="84.666666666666686" y="306.66666666666669" width="224" height="264.00000000000006"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="pkZ-PC-sbX">
+                                        <rect key="frame" x="0.0" y="0.0" width="224" height="120"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lucky_yellow" translatesAutoresizingMaskIntoConstraints="NO" id="2t4-wS-Idi">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="120"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="120" id="PRO-Rr-F3r"/>
+                                                    <constraint firstAttribute="width" constant="100" id="niH-dZ-NTR"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lucky_green" translatesAutoresizingMaskIntoConstraints="NO" id="QqI-yH-0Dy">
+                                                <rect key="frame" x="124" y="0.0" width="100" height="120"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Tnf-3d-IhH">
+                                        <rect key="frame" x="0.0" y="144" width="224" height="120"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lucky_purple" translatesAutoresizingMaskIntoConstraints="NO" id="jdQ-fj-6A0">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="120"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="120" id="Ax4-w1-5zm"/>
+                                                    <constraint firstAttribute="width" constant="100" id="ljg-HY-ARj"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lucky_blue" translatesAutoresizingMaskIntoConstraints="NO" id="vJ2-wm-bjs">
+                                                <rect key="frame" x="124" y="0.0" width="100" height="120"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="h5n-2D-6CY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="h5n-2D-6CY" firstAttribute="trailing" secondItem="J6s-EI-4aw" secondAttribute="trailing" id="5KW-bT-3ai"/>
+                            <constraint firstItem="7on-ZM-Poh" firstAttribute="centerY" secondItem="h5n-2D-6CY" secondAttribute="centerY" id="9Ym-3f-HpW"/>
+                            <constraint firstAttribute="bottom" secondItem="J6s-EI-4aw" secondAttribute="bottom" id="MDE-Bk-6B4"/>
+                            <constraint firstItem="J6s-EI-4aw" firstAttribute="top" secondItem="6lR-bL-9Nc" secondAttribute="top" id="QzH-e2-9Yz"/>
+                            <constraint firstItem="J6s-EI-4aw" firstAttribute="leading" secondItem="h5n-2D-6CY" secondAttribute="leading" id="loL-Dx-iQh"/>
+                            <constraint firstItem="7on-ZM-Poh" firstAttribute="centerX" secondItem="h5n-2D-6CY" secondAttribute="centerX" id="q4o-nx-HIJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="blueImageView" destination="vJ2-wm-bjs" id="hCP-gq-RJR"/>
+                        <outlet property="greenImageView" destination="QqI-yH-0Dy" id="tHd-Gv-JTW"/>
+                        <outlet property="purpleImageView" destination="jdQ-fj-6A0" id="S3C-dX-4ho"/>
+                        <outlet property="yellowImageView" destination="2t4-wS-Idi" id="Cb0-hn-3uY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8AH-I0-QxW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1547.3282442748091" y="-18.30985915492958"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="81E-ct-C6w">
@@ -164,6 +233,11 @@
     </designables>
     <resources>
         <image name="background_home_image" width="360" height="640"/>
+        <image name="lucky_blue" width="99" height="134"/>
+        <image name="lucky_green" width="99" height="134"/>
+        <image name="lucky_purple" width="99" height="134"/>
+        <image name="lucky_yellow" width="99" height="134"/>
+        <image name="minigame_background" width="360" height="640"/>
         <image name="rabbit_go_ahead" width="512" height="512"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

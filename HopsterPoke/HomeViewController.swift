@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet weak var dailyCheckinView: DailyCheckinView!
+    @IBOutlet weak var dailyCheckinView: UIView!
     @IBOutlet weak var betView: BetView!
     @IBOutlet weak var optionView: OptionView!
     @IBOutlet weak var menuView: MenuView!
@@ -41,20 +41,32 @@ class HomeViewController: UIViewController {
             vc.modalPresentationStyle = .fullScreen
             self?.present(vc, animated: true)
         }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = DailyCheckinViewController()
+        dailyCheckinView.addSubview(vc.view)
+        vc.view.snp.makeConstraints { $0.edges.equalToSuperview() }
+        addChild(vc)
         if UserInfomation.firstLauchApp {
-//            NotificationService.shared.scheduleLocal()
             let descriptionView = GameWarningView()
             view.addSubview(descriptionView)
             descriptionView.snp.makeConstraints {
                 $0.edges.equalToSuperview()
             }
         }
+        reloadContent()
+    }
+    
+    func reloadContent() {
+        titleLabel.text = "BALANCE: \(UserInfomation.numberOfCarrots)"
     }
     
     private func updateView(state: MenuButton) {
         [betView, optionView, instructionView, dailyCheckinView, homeView].forEach {
             if state == .instructions {
                 instructionView.resetContent()
+            }
+            if state == .home {
+                reloadContent()
             }
             if $0.tag == state.rawValue {
                 $0.isHidden = false
