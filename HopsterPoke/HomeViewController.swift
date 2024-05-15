@@ -72,6 +72,7 @@ class HomeViewController: UIViewController {
     
     func reloadContent() {
         titleLabel.text = "BALANCE: \(UserInfomation.numberOfCarrots)"
+        recordLabel.text = "RECORD: \(UserInfomation.record)"
     }
     
     private func updateView(state: MenuButton) {

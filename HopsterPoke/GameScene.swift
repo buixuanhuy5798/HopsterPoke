@@ -9,7 +9,9 @@ import SpriteKit
 import GameplayKit
 
 protocol GameDelegate {
- func gameOver()
+    func gameOver()
+    func gameWin()
+    func showMinigame()
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -24,8 +26,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var dinoYPosition: CGFloat?
     
-    var groundHeight: CGFloat = 150
-    var groundWidth: CGFloat = 737
+    var groundHeight: CGFloat = 180
+    var groundWidth: CGFloat = 883
     
     var skyWidth: CGFloat = 1106
     var skyHeight: CGFloat = 1000
@@ -42,6 +44,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var lifeCount = 2
     var totalPoint = 0
+    var winnerPoint = Int.random(in: 12..<20)
+    
+    let buttonDirUp = SKSpriteNode(imageNamed: "up_button")
+    let buttonDirDown = SKSpriteNode(imageNamed: "down_button")
+    let alphaUnpressed: CGFloat = 0.5
+    let alphaPressed: CGFloat = 0.9
+    var pressedButtons = [SKSpriteNode]()
     
     //sound effects
     let jumpSound = SKAction.playSoundFileNamed("arrow_up_down", waitForCompletion: false)
@@ -50,26 +59,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let groundCategory = 1 << 0 as UInt32
     let dinoCategory = 1 << 1 as UInt32
     let cactusCategory = 1 << 2 as UInt32
+    var needGenCactus = true
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for _ in touches {
-            if let groundPosition = dinoYPosition {
-                if rabbitSprite.position.y < 0 {
-                    if rabbitSprite.position.y <= groundPosition && gameNode.speed > 0 {
-                        rabbitSprite.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-                        rabbitSprite.physicsBody?.applyImpulse(CGVector(dx: 0, dy: dinoHopForce))
-                        if UserInfomation.turnOnSound {
-                            run(jumpSound)
-                        }
-                    }
-                }
-            }
-        }
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        for _ in touches {
+//            if let groundPosition = dinoYPosition {
+//                if rabbitSprite.position.y < 0 {
+//                    if rabbitSprite.position.y <= groundPosition && gameNode.speed > 0 {
+//                        rabbitSprite.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+//                        rabbitSprite.physicsBody?.applyImpulse(CGVector(dx: 0, dy: dinoHopForce))
+//                        if UserInfomation.turnOnSound {
+//                            run(jumpSound)
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
     
     override func didMove(to view: SKView) {
 //        self.physicsWorld.contactDelegate = self
-        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -12)
+        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -10)
         backgroundNode = SKNode()
         backgroundNode.zPosition = background
         createAndMoveGround()
@@ -88,8 +98,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameNode.addChild(backgroundNode)
         gameNode.addChild(rabbitNode)
         gameNode.addChild(cactusNode)
+        
+        setupControls(size: frame.size)
+        
         self.addChild(gameNode)
         physicsWorld.contactDelegate = self
+    }
+    
+    func gameWin() {
+        gameNode.speed = 0.0
+        rabbitSprite.removeAllActions()
+        gameDelegate?.gameWin()
     }
     
     func gameOver() {
@@ -100,6 +119,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         rabbitSprite.removeAllActions()
         rabbitSprite.texture = deadRabbitTexture
+        gameDelegate?.gameOver()
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -111,7 +131,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             } else {
                 gameOver()
-                gameDelegate?.gameOver()
             }
         }
     }
@@ -120,7 +139,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let hit = contact.bodyA.categoryBitMask & cactusCategory == cactusCategory ||
         contact.bodyB.categoryBitMask & cactusCategory == cactusCategory
         if hit {
-            print("NAME BODY A: \(contact.bodyA)")
+            if let name = contact.bodyB.node?.name, name == "flowerpot_winner" {
+                gameWin()
+                return false
+            }
+            contact.bodyB.node?.removeFromParent()
         }
         return contact.bodyA.categoryBitMask & cactusCategory == cactusCategory ||
             contact.bodyB.categoryBitMask & cactusCategory == cactusCategory
@@ -128,15 +151,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-        if (gameNode.speed > 0) {
-            if(currentTime - timeSinceLastSpawn > spawnRate){
+        if gameNode.speed > 0 {
+            if currentTime - timeSinceLastSpawn > spawnRate && needGenCactus {
                 timeSinceLastSpawn = currentTime
-                spawnRate = Double.random(in: 2 ..< 4.5)
-                
-                if(Int.random(in: 0...10) < 8){
-                    spawnCactus()
-                } else {
-//                    spawnBird()
+                spawnRate = Double.random(in: 3 ..< 5.5)
+               
+                if(Int.random(in: 0...13) < 8) {
+                    if totalPoint == winnerPoint {
+                        spawnWinner()
+                        needGenCactus = false
+                    } else {
+                        spawnCactus()
+                        totalPoint += 1
+                    }
                 }
             }
         }
@@ -154,13 +181,42 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return CGSize(width: 40, height: 41)
         case "flowerpot5":
             return CGSize(width: 40, height: 41)
+        case "flowerpot_double_1":
+            return CGSize(width: 80, height: 63)
+        case "flowerpot_double_2":
+            return CGSize(width: 80, height: 47)
+        case "flowerpot_tripple_1":
+            return CGSize(width: 120, height: 63)
         default:
             return .zero
         }
     }
     
+    func spawnWinner() {
+        let cactusTexture = SKTexture(imageNamed: "flowerpot_winner")
+        
+        cactusTexture.filteringMode = .nearest
+        let cactusSprite = SKSpriteNode(texture: cactusTexture)
+        cactusSprite.size = CGSize(width: 40, height: 70)
+        cactusSprite.name = "flowerpot_winner"
+        cactusSprite.position = CGPoint(x: frame.width/2 + 30, y: -frame.height/2 + groundHeight)
+        //physics
+        let contactBox = CGSize(width: 40, height: 70)
+        cactusSprite.physicsBody = SKPhysicsBody(rectangleOf: contactBox)
+        cactusSprite.physicsBody?.isDynamic = true
+        cactusSprite.physicsBody?.mass = 1.0
+        cactusSprite.physicsBody?.categoryBitMask = cactusCategory
+        cactusSprite.physicsBody?.contactTestBitMask = dinoCategory
+        cactusSprite.physicsBody?.collisionBitMask = groundCategory
+        
+        //add to scene
+        cactusNode.addChild(cactusSprite)
+        //animate
+        animateCactus(sprite: cactusSprite, texture: cactusTexture)
+    }
+    
     func spawnCactus() {
-        let cactusTextures = ["flowerpot1", "flowerpot2", "flowerpot3", "flowerpot4", "flowerpot5"]
+        let cactusTextures = ["flowerpot1", "flowerpot2", "flowerpot3", "flowerpot4", "flowerpot5", "flowerpot_double_1", "flowerpot_double_2", "flowerpot_tripple_1"]
         
         //texture
         let imagedName = cactusTextures.randomElement()!
@@ -171,6 +227,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let cactusSprite = SKSpriteNode(texture: cactusTexture)
         cactusSprite.size = getSizeCactus(name: imagedName)
+        cactusSprite.name = imagedName
         cactusSprite.position = CGPoint(x: frame.width/2 + 30, y: -frame.height/2 + groundHeight)
         
         //physics
@@ -198,9 +255,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let moveCactus = SKAction.moveBy(x: -distanceToMove, y: 0.0, duration: TimeInterval(screenWidth / groundSpeed))
         let removeCactus = SKAction.removeFromParent()
         let moveAndRemove = SKAction.sequence([moveCactus, removeCactus])
-        sprite.run(moveAndRemove) {
-            print("DONE 1 CAI")
-        }
+        sprite.run(moveAndRemove)
     }
     
     func createRabbit() {
@@ -270,6 +325,114 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         groundContactNode.physicsBody?.categoryBitMask = groundCategory
         
         backgroundNode.addChild(groundContactNode)
+    }
+    
+    // MARK: - Add button and logic
+    
+    func addButton(button: SKSpriteNode, position: CGPoint, name: String) {
+        button.position = position
+        button.size = CGSize(width: 56, height: 56)
+        button.name = name
+        button.zPosition = 10
+        button.alpha = alphaUnpressed
+        self.addChild(button)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches {
+            let location = t.location(in: self)
+            for button in [buttonDirUp, buttonDirDown] {
+                if button.contains(location) && pressedButtons.firstIndex(of: button) == nil {
+                    pressedButtons.append(button)
+                    follow(command: button.name)
+                }
+                if pressedButtons.firstIndex(of: button) != nil {
+                    button.alpha = alphaPressed
+                } else {
+                    button.alpha = alphaUnpressed
+                }
+            }
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches {
+            let location = t.location(in: self)
+            let previousLocation = t.previousLocation(in: self)
+            
+            for button in [buttonDirUp, buttonDirDown] {
+                if button.contains(previousLocation) && !button.contains(location) {
+                    if let index = pressedButtons.firstIndex(of: button) {
+                        pressedButtons.remove(at: index)
+                        follow(command: "cancel \(button.name ?? "")")
+                    }
+                } else if !button.contains(previousLocation) && button.contains(location) && pressedButtons.firstIndex(of: button) == nil {
+                    pressedButtons.append(button)
+                    follow(command: button.name)
+                }
+                if pressedButtons.firstIndex(of: button) != nil {
+                    button.alpha = alphaPressed
+                } else {
+                    button.alpha = alphaUnpressed
+                }
+            }
+        }
+    }
+    
+    func touchUp(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches {
+            let location = t.location(in: self)
+            let previousLocation = t.previousLocation(in: self)
+            for button in [buttonDirUp, buttonDirDown] {
+                if let index = pressedButtons.firstIndex(of: button) {
+                    pressedButtons.remove(at: index)
+                    follow(command: "stop \(button.name ?? "")")
+                }
+                if pressedButtons.firstIndex(of: button) != nil {
+                    button.alpha = alphaPressed
+                } else {
+                    button.alpha = alphaUnpressed
+                }
+            }
+        }
+        
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        touchUp(touches, with: event)
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        touchUp(touches, with: event)
+    }
+    
+    func follow(command: String?) {
+        if command == "up" {
+            if let groundPosition = dinoYPosition {
+                if rabbitSprite.position.y < 0 {
+                    if rabbitSprite.position.y <= groundPosition && gameNode.speed > 0 {
+                        rabbitSprite.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+                        rabbitSprite.physicsBody?.applyImpulse(CGVector(dx: 0, dy: dinoHopForce))
+                        if UserInfomation.turnOnSound {
+                            run(jumpSound)
+                        }
+                    }
+                }
+            }
+        } else if command == "down" {
+            rabbitSprite.physicsBody?.applyImpulse(CGVector(dx: 0, dy: -dinoHopForce))
+//            rabbitSprite.position = CGPoint(x: -frame.width/2+90, y: -frame.height/2 + groundHeight + 16)
+        }
+        print("Command: \(command ?? "")")
+    }
+    
+    func setupControls(size: CGSize) {
+        addButton(button: buttonDirUp,
+                  position: CGPoint(x: frame.width / 2 - 24 - 72, y: -frame.height / 2 + 100),
+                  name: "up")
+        addButton(button: buttonDirDown,
+                  position: CGPoint(x: frame.width / 2 - 24 - 72, y: -frame.height / 2 + 40),
+                  name: "down")
     }
 }
 

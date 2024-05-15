@@ -37,8 +37,7 @@ class DailyCheckinViewController: UIViewController {
         tableView.backgroundColor = .clear
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
-        tableView.bouncesVertically = false
-        tableView.bouncesHorizontally = false
+        tableView.bounces = false
         return tableView
     }()
     
