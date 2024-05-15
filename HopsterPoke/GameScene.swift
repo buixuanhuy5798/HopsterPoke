@@ -8,7 +8,13 @@
 import SpriteKit
 import GameplayKit
 
+protocol GameDelegate {
+ func gameOver()
+}
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
+    var gameDelegate: GameDelegate?
+    
     var gameNode: SKNode!
     var backgroundNode: SKNode!
     var rabbitNode: SKNode!
@@ -18,8 +24,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var dinoYPosition: CGFloat?
     
-    var groundHeight: CGFloat = 120
-    var groundWidth: CGFloat = 590
+    var groundHeight: CGFloat = 150
+    var groundWidth: CGFloat = 737
     
     var skyWidth: CGFloat = 1106
     var skyHeight: CGFloat = 1000
@@ -34,8 +40,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var spawnRate = 1.5 as Double
     var timeSinceLastSpawn = 0.0 as Double
     
+    var lifeCount = 2
+    var totalPoint = 0
+    
     //sound effects
     let jumpSound = SKAction.playSoundFileNamed("arrow_up_down", waitForCompletion: false)
+    let die1lifesound = SKAction.playSoundFileNamed("one_heart_left", waitForCompletion: false)
     
     let groundCategory = 1 << 0 as UInt32
     let dinoCategory = 1 << 1 as UInt32
@@ -44,11 +54,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for _ in touches {
             if let groundPosition = dinoYPosition {
-                if rabbitSprite.position.y < 50 {
+                if rabbitSprite.position.y < 0 {
                     if rabbitSprite.position.y <= groundPosition && gameNode.speed > 0 {
                         rabbitSprite.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
                         rabbitSprite.physicsBody?.applyImpulse(CGVector(dx: 0, dy: dinoHopForce))
-                        run(jumpSound)
+                        if UserInfomation.turnOnSound {
+                            run(jumpSound)
+                        }
                     }
                 }
             }
@@ -80,13 +92,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
     }
     
+    func gameOver() {
+        gameNode.speed = 0.0
+
+        let deadRabbitTexture = SKTexture(imageNamed: "dead_rabbit")
+        deadRabbitTexture.filteringMode = .nearest
+        
+        rabbitSprite.removeAllActions()
+        rabbitSprite.texture = deadRabbitTexture
+    }
+    
     func didBegin(_ contact: SKPhysicsContact) {
         if(hitCactus(contact)){
-            print("DIEEEE")
+            lifeCount -= 1
+            if lifeCount > 0 {
+                if UserInfomation.turnOnSound {
+                    run(die1lifesound)
+                }
+            } else {
+                gameOver()
+                gameDelegate?.gameOver()
+            }
         }
     }
     
     func hitCactus(_ contact: SKPhysicsContact) -> Bool {
+        let hit = contact.bodyA.categoryBitMask & cactusCategory == cactusCategory ||
+        contact.bodyB.categoryBitMask & cactusCategory == cactusCategory
+        if hit {
+            print("NAME BODY A: \(contact.bodyA)")
+        }
         return contact.bodyA.categoryBitMask & cactusCategory == cactusCategory ||
             contact.bodyB.categoryBitMask & cactusCategory == cactusCategory
     }
@@ -157,13 +192,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func animateCactus(sprite: SKSpriteNode, texture: SKTexture) {
         let screenWidth = self.frame.size.width
         let distanceOffscreen = 50.0 as CGFloat
-        let distanceToMove = frame.width + 100
+        let distanceToMove = frame.width + 50
         
         //actions
         let moveCactus = SKAction.moveBy(x: -distanceToMove, y: 0.0, duration: TimeInterval(screenWidth / groundSpeed))
         let removeCactus = SKAction.removeFromParent()
         let moveAndRemove = SKAction.sequence([moveCactus, removeCactus])
-        sprite.run(moveAndRemove)
+        sprite.run(moveAndRemove) {
+            print("DONE 1 CAI")
+        }
     }
     
     func createRabbit() {

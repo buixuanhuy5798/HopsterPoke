@@ -37,6 +37,7 @@
 		05FC55C22BF3B5E600DDE126 /* flowerpot4.png in Resources */ = {isa = PBXBuildFile; fileRef = 05FC55C12BF3B5E600DDE126 /* flowerpot4.png */; };
 		05FC55C42BF3B5EC00DDE126 /* flowerpot5.png in Resources */ = {isa = PBXBuildFile; fileRef = 05FC55C32BF3B5EC00DDE126 /* flowerpot5.png */; };
 		3FF6CB821A65AA32F9E3CAE0 /* Pods_HopsterPoke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB0A2B7CD2AFC9385AF8204 /* Pods_HopsterPoke.framework */; };
+		F024390D2BF4404D00FAEDD7 /* one_heart_left.wav in Resources */ = {isa = PBXBuildFile; fileRef = F024390C2BF4404D00FAEDD7 /* one_heart_left.wav */; };
 		F05CAF432BF1A34400AF90D2 /* SoundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CAF422BF1A34400AF90D2 /* SoundService.swift */; };
 		F05CAF482BF1B23700AF90D2 /* button_tap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F05CAF472BF1B23700AF90D2 /* button_tap.mp3 */; };
 		F05CAF4A2BF1B6AC00AF90D2 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CAF492BF1B6AC00AF90D2 /* NotificationService.swift */; };
@@ -79,6 +80,7 @@
 		15F5220A69B6C51A39B62E86 /* Pods-HopsterPoke.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HopsterPoke.debug.xcconfig"; path = "Target Support Files/Pods-HopsterPoke/Pods-HopsterPoke.debug.xcconfig"; sourceTree = "<group>"; };
 		81DB08E08893CA289D880388 /* Pods-HopsterPoke.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HopsterPoke.release.xcconfig"; path = "Target Support Files/Pods-HopsterPoke/Pods-HopsterPoke.release.xcconfig"; sourceTree = "<group>"; };
 		9AB0A2B7CD2AFC9385AF8204 /* Pods_HopsterPoke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HopsterPoke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F024390C2BF4404D00FAEDD7 /* one_heart_left.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = one_heart_left.wav; sourceTree = "<group>"; };
 		F05CAF422BF1A34400AF90D2 /* SoundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundService.swift; sourceTree = "<group>"; };
 		F05CAF472BF1B23700AF90D2 /* button_tap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = button_tap.mp3; sourceTree = "<group>"; };
 		F05CAF492BF1B6AC00AF90D2 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				05F629022BF2FD0D0028EFAE /* cacti */,
 				F05CAF532BF1C68600AF90D2 /* arrow_up_down.wav */,
+				F024390C2BF4404D00FAEDD7 /* one_heart_left.wav */,
 				F05CAF4B2BF1B6B300AF90D2 /* Service */,
 				05D35D652BEFDBA500605C78 /* Info.plist */,
 				05D35D632BEFDB8100605C78 /* GangOfThree.ttf */,
@@ -275,6 +278,7 @@
 				05D327FB2BF24E8C00905592 /* DailyCheckinCellTableViewCell.xib in Resources */,
 				0527E7F02BED2709006ECB75 /* Base in Resources */,
 				F05CAF542BF1C68600AF90D2 /* arrow_up_down.wav in Resources */,
+				F024390D2BF4404D00FAEDD7 /* one_heart_left.wav in Resources */,
 				0527E7F22BED270C006ECB75 /* Assets.xcassets in Resources */,
 				0527E7E92BED2709006ECB75 /* Actions.sks in Resources */,
 				05FC55C42BF3B5EC00DDE126 /* flowerpot5.png in Resources */,

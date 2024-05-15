@@ -33,11 +33,12 @@ class HomeViewController: UIViewController {
         menuView.didChangeTab = { [weak self] state in
             self?.updateView(state: state)
         }
-        betView.didTapPlay = { [weak self] in
+        betView.didTapPlay = { [weak self] bet in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             guard let vc = storyboard.instantiateViewController(withIdentifier: "GameViewController") as? GameViewController else {
                 return
             }
+            vc.point = bet
             vc.modalPresentationStyle = .fullScreen
             self?.present(vc, animated: true)
         }
@@ -54,6 +55,19 @@ class HomeViewController: UIViewController {
             }
         }
         reloadContent()
+        NotificationCenter.default.addObserver(self, selector: #selector(gameOverTapMenu), name: Notification.Name("TapMenu"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(gameOverTapBet), name: Notification.Name("TapBet"), object: nil)
+    }
+    
+    @objc private func gameOverTapBet() {
+        menuView.currentSelection = .playGame
+        updateView(state: .playGame)
+//        betView.reloadData()
+    }
+    
+    @objc private func gameOverTapMenu() {
+        menuView.currentSelection = .home
+        updateView(state: .home)
     }
     
     func reloadContent() {
@@ -74,6 +88,10 @@ class HomeViewController: UIViewController {
                 $0.isHidden = true
             }
         }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 

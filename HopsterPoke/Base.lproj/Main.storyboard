@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wD5-BH-blq">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
@@ -16,13 +16,114 @@
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1QO-y9-vUH">
+                                <rect key="frame" x="136.66666666666666" y="75" width="119.99999999999997" height="42"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bounder_input_image" translatesAutoresizingMaskIntoConstraints="NO" id="ptR-G9-ATy">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="42"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_carrot" translatesAutoresizingMaskIntoConstraints="NO" id="gNP-vC-9uZ">
+                                        <rect key="frame" x="84.666666666666686" y="9" width="12" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="12" id="qkU-rF-zH8"/>
+                                            <constraint firstAttribute="height" constant="24" id="zZt-eb-dcK"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PpP-w6-JR7">
+                                        <rect key="frame" x="39.333333333333343" y="10.999999999999998" width="41.333333333333343" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ptR-G9-ATy" firstAttribute="leading" secondItem="1QO-y9-vUH" secondAttribute="leading" id="0LG-Dw-Hpk"/>
+                                    <constraint firstItem="ptR-G9-ATy" firstAttribute="top" secondItem="1QO-y9-vUH" secondAttribute="top" id="2r9-L2-Jdb"/>
+                                    <constraint firstAttribute="bottom" secondItem="ptR-G9-ATy" secondAttribute="bottom" id="3Uh-9C-xHC"/>
+                                    <constraint firstItem="gNP-vC-9uZ" firstAttribute="leading" secondItem="PpP-w6-JR7" secondAttribute="trailing" constant="4" id="7x9-f0-OAq"/>
+                                    <constraint firstItem="PpP-w6-JR7" firstAttribute="centerY" secondItem="1QO-y9-vUH" secondAttribute="centerY" id="8Mx-HL-SQR"/>
+                                    <constraint firstItem="gNP-vC-9uZ" firstAttribute="centerY" secondItem="PpP-w6-JR7" secondAttribute="centerY" id="ItT-S4-Zr8"/>
+                                    <constraint firstAttribute="width" constant="120" id="Shx-By-bo5"/>
+                                    <constraint firstItem="PpP-w6-JR7" firstAttribute="centerX" secondItem="1QO-y9-vUH" secondAttribute="centerX" id="aba-wf-jmG"/>
+                                    <constraint firstAttribute="trailing" secondItem="ptR-G9-ATy" secondAttribute="trailing" id="ajv-4V-tPW"/>
+                                    <constraint firstAttribute="height" constant="42" id="rJl-lM-Bcy"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DlD-jr-f4B">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="description_game_image" translatesAutoresizingMaskIntoConstraints="NO" id="tua-he-P7v">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="96c-m0-suw">
+                                        <rect key="frame" x="131" y="387.66666666666669" width="131" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="UAO-kr-API"/>
+                                            <constraint firstAttribute="width" constant="131" id="tnl-JO-H0q"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="bet_button"/>
+                                        <connections>
+                                            <action selector="handleTapBetButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Uo2-XF-AO9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EgY-ef-t9f">
+                                        <rect key="frame" x="131" y="448.66666666666669" width="131" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="AYL-uR-J59"/>
+                                            <constraint firstAttribute="width" constant="131" id="B1L-cv-3I6"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="menu_button"/>
+                                        <connections>
+                                            <action selector="handleTapMenuButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="BhD-3w-rNk"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wST-By-MP8">
+                                        <rect key="frame" x="16" y="342.66666666666669" width="361" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="EgY-ef-t9f" firstAttribute="centerX" secondItem="96c-m0-suw" secondAttribute="centerX" id="3bs-Ib-m4P"/>
+                                    <constraint firstAttribute="trailing" secondItem="tua-he-P7v" secondAttribute="trailing" id="4kI-gm-DX5"/>
+                                    <constraint firstItem="tua-he-P7v" firstAttribute="top" secondItem="DlD-jr-f4B" secondAttribute="top" id="DuX-gE-uRU"/>
+                                    <constraint firstItem="wST-By-MP8" firstAttribute="leading" secondItem="DlD-jr-f4B" secondAttribute="leading" constant="16" id="IWj-h0-Dox"/>
+                                    <constraint firstItem="EgY-ef-t9f" firstAttribute="top" secondItem="96c-m0-suw" secondAttribute="bottom" constant="16" id="UZJ-OY-FKb"/>
+                                    <constraint firstItem="tua-he-P7v" firstAttribute="leading" secondItem="DlD-jr-f4B" secondAttribute="leading" id="b7b-5X-ocK"/>
+                                    <constraint firstItem="96c-m0-suw" firstAttribute="centerX" secondItem="tua-he-P7v" secondAttribute="centerX" id="boH-rP-PxY"/>
+                                    <constraint firstAttribute="bottom" secondItem="tua-he-P7v" secondAttribute="bottom" id="cnb-qH-whY"/>
+                                    <constraint firstItem="96c-m0-suw" firstAttribute="centerY" secondItem="tua-he-P7v" secondAttribute="centerY" constant="-16" id="ha7-Rx-RVf"/>
+                                    <constraint firstAttribute="trailing" secondItem="wST-By-MP8" secondAttribute="trailing" constant="16" id="hdU-QL-g1q"/>
+                                    <constraint firstItem="96c-m0-suw" firstAttribute="top" secondItem="wST-By-MP8" secondAttribute="bottom" constant="24" id="mxb-r8-C6B"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DlD-jr-f4B" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="6XE-TK-ZNJ"/>
+                            <constraint firstItem="DlD-jr-f4B" firstAttribute="trailing" secondItem="4qk-I5-YsI" secondAttribute="trailing" id="Zxh-47-Lkl"/>
+                            <constraint firstItem="1QO-y9-vUH" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" constant="16" id="aj3-Bx-CjN"/>
+                            <constraint firstItem="DlD-jr-f4B" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="bz9-Bu-d5J"/>
+                            <constraint firstAttribute="bottom" secondItem="DlD-jr-f4B" secondAttribute="bottom" id="jAK-fF-igd"/>
+                            <constraint firstItem="1QO-y9-vUH" firstAttribute="centerX" secondItem="4qk-I5-YsI" secondAttribute="centerX" id="wKv-cP-H60"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="gameOverLabel" destination="wST-By-MP8" id="561-fT-obo"/>
+                        <outlet property="gameOverView" destination="DlD-jr-f4B" id="uLX-2E-c6Q"/>
+                        <outlet property="numberOfCarrotsLabel" destination="PpP-w6-JR7" id="cl1-pk-2AK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48" y="-2"/>
+            <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="kQ0-Gc-E9R">
@@ -151,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oHL-93-vKK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="893.89312977099235" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="-622" y="-2"/>
         </scene>
         <!--Mini Game Controller-->
         <scene sceneID="LmG-an-yoT">
@@ -220,7 +321,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8AH-I0-QxW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1532" y="-2"/>
+            <point key="canvasLocation" x="738" y="-2"/>
         </scene>
     </scenes>
     <designables>
@@ -233,10 +334,15 @@
     </designables>
     <resources>
         <image name="background_home_image" width="360" height="640"/>
+        <image name="bet_button" width="131" height="45"/>
+        <image name="bounder_input_image" width="178" height="61"/>
+        <image name="description_game_image" width="360" height="640"/>
+        <image name="icon_carrot" width="16" height="26"/>
         <image name="lucky_blue" width="99" height="134"/>
         <image name="lucky_green" width="99" height="134"/>
         <image name="lucky_purple" width="99" height="134"/>
         <image name="lucky_yellow" width="99" height="134"/>
+        <image name="menu_button" width="131" height="45"/>
         <image name="minigame_background" width="360" height="640"/>
         <image name="rabbit_go_ahead" width="512" height="512"/>
         <namedColor name="AccentColor">

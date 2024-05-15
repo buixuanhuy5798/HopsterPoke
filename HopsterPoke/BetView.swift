@@ -8,9 +8,9 @@
 import UIKit
 
 class BetView: UIView {
-    var didTapPlay: (() -> Void)?
+    var didTapPlay: ((Int) -> Void)?
     
-    private var betNumber = 1 {
+    private var betNumber = UserInfomation.numberOfCarrots  {
         didSet {
             setTextInput()
         }
@@ -192,7 +192,7 @@ class BetView: UIView {
     
     @objc private func handleTapSubtractButton() {
         SoundService.shared.playButtonTapSound()
-        if betNumber > 2 {
+        if betNumber >= 2 {
             betNumber -= 1
         }
     }
@@ -206,9 +206,17 @@ class BetView: UIView {
            ] as [NSAttributedString.Key : Any]
         numberOfCarrotsLabel.attributedText = NSAttributedString(string: "\(betNumber)", attributes: strokeTextAttributes)
     }
+    
+    func reloadData() {
+        betNumber = UserInfomation.numberOfCarrots
+        setTextInput()
+    }
      
     @objc private func handleTapPlayButton() {
+        if betNumber == 0 {
+            return
+        }
         SoundService.shared.playButtonTapSound()
-        didTapPlay?()
+        didTapPlay?(betNumber)
     }
 }
