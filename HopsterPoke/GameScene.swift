@@ -48,6 +48,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let buttonDirUp = SKSpriteNode(imageNamed: "up_button")
     let buttonDirDown = SKSpriteNode(imageNamed: "down_button")
+    let buttonDirLeft = SKSpriteNode(imageNamed: "icon_back_button")
+    let buttonDirRight = SKSpriteNode(imageNamed: "icon_next_button")
+    
     let alphaUnpressed: CGFloat = 0.5
     let alphaPressed: CGFloat = 0.9
     var pressedButtons = [SKSpriteNode]()
@@ -341,7 +344,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches {
             let location = t.location(in: self)
-            for button in [buttonDirUp, buttonDirDown] {
+            for button in [buttonDirUp, buttonDirDown, buttonDirLeft, buttonDirRight] {
                 if button.contains(location) && pressedButtons.firstIndex(of: button) == nil {
                     pressedButtons.append(button)
                     follow(command: button.name)
@@ -360,7 +363,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let location = t.location(in: self)
             let previousLocation = t.previousLocation(in: self)
             
-            for button in [buttonDirUp, buttonDirDown] {
+            for button in [buttonDirUp, buttonDirDown, buttonDirLeft, buttonDirRight] {
                 if button.contains(previousLocation) && !button.contains(location) {
                     if let index = pressedButtons.firstIndex(of: button) {
                         pressedButtons.remove(at: index)
@@ -383,7 +386,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for t in touches {
             let location = t.location(in: self)
             let previousLocation = t.previousLocation(in: self)
-            for button in [buttonDirUp, buttonDirDown] {
+            for button in [buttonDirUp, buttonDirDown, buttonDirLeft, buttonDirRight] {
                 if let index = pressedButtons.firstIndex(of: button) {
                     pressedButtons.remove(at: index)
                     follow(command: "stop \(button.name ?? "")")
@@ -422,6 +425,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         } else if command == "down" {
             rabbitSprite.physicsBody?.applyImpulse(CGVector(dx: 0, dy: -dinoHopForce))
 //            rabbitSprite.position = CGPoint(x: -frame.width/2+90, y: -frame.height/2 + groundHeight + 16)
+        } else if command == "left" {
+            
+        } else if command == "right" {
+            
         }
         print("Command: \(command ?? "")")
     }
@@ -433,6 +440,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addButton(button: buttonDirDown,
                   position: CGPoint(x: frame.width / 2 - 24 - 72, y: -frame.height / 2 + 40),
                   name: "down")
+        addButton(button: buttonDirLeft,
+                  position: CGPoint(x: -frame.width / 2 + 80, y: -frame.height / 2 + 75),
+                  name: "left")
+        addButton(button: buttonDirRight,
+                  position: CGPoint(x: -frame.width / 2 + 140, y: -frame.height / 2 + 75),
+                  name: "right")
     }
 }
 
