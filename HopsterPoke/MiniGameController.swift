@@ -7,6 +7,17 @@
 
 import UIKit
 
+enum MiniGameLevel {
+    case level1
+    case level2
+    case level3
+}
+
+struct LevelInfo {
+    let time: Int
+    let rate: Int
+}
+
 enum MiniGameItem: Int {
     case yellow = 1000
     case purple = 1001
@@ -16,12 +27,22 @@ enum MiniGameItem: Int {
 
 class MiniGameController: UIViewController {
 
+    @IBOutlet weak var rateLabel: UILabel!
+    @IBOutlet weak var countDownLabel: UILabel!
+    @IBOutlet weak var poupView: UIView!
     @IBOutlet weak var blueImageView: UIImageView!
     @IBOutlet weak var purpleImageView: UIImageView!
     @IBOutlet weak var greenImageView: UIImageView!
     @IBOutlet weak var yellowImageView: UIImageView!
+    
+    var result: ((Int) -> Void)?
+    
+    var timer: Timer?
     var random = [1000, 1001, 1002, 1003]
     var tap = [Int]()
+    var level = MiniGameLevel.level1
+    var remainTime = 0
+    var rate = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,29 +51,56 @@ class MiniGameController: UIViewController {
         yellowImageView.tag = MiniGameItem.yellow.rawValue
         greenImageView.tag = MiniGameItem.green.rawValue
         [purpleImageView, blueImageView, yellowImageView, greenImageView].forEach {
-            $0?.alpha = 0
-            $0?.isUserInteractionEnabled = false
             $0?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapImage(sender:))))
         }
-        random = random.shuffled()
-        print(random)
+        resetAll()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        animationDisplay()
+    func startGame() {
+        countDownLabel.attributedText = setTextInput(input: "\(remainTime) SEC", size: 30)
+        rateLabel.attributedText = setTextInput(input: "X\(rate)", size: 30)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.animationDisplay()
+        }
+    }
+    
+    func gameOver() {
+        print("LOSE")
+        timer?.invalidate()
+        
+    }
+    
+    @objc private func timerAction() {
+        remainTime -= 1
+        countDownLabel.attributedText = setTextInput(input: "\(remainTime) SEC", size: 30)
+        if remainTime == 0 {
+            gameOver()
+        }
     }
     
     func resetAll() {
         [purpleImageView, blueImageView, yellowImageView, greenImageView].forEach {
             $0?.alpha = 0
             $0?.isUserInteractionEnabled = false
+            print("SET FAIL")
         }
         random = random.shuffled()
         tap = []
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.animationDisplay()
+        timer?.invalidate()
+        switch level {
+        case .level1:
+            remainTime = 10
+            rate = 2
+        case .level2:
+            remainTime = 5
+            rate = 3
+        case .level3:
+            remainTime = 3
+            rate = 4
         }
+        poupView.isHidden = true
+        poupView.alpha = 0
+        startGame()
     }
     
     @objc private func handleTapImage(sender: UITapGestureRecognizer) {
@@ -63,12 +111,19 @@ class MiniGameController: UIViewController {
                 print(tap)
                 if tap.count == 4 {
                     if tap == random {
-                        resetAll()
+                        showWinPopup()
                     } else {
-                        print("LOSE")
+                        gameOver()
                     }
                 }
             }
+        }
+    }
+    
+    func showWinPopup() {
+        poupView.isHidden = false
+        UIView.animate(withDuration: 0.5) {
+            self.poupView.alpha = 1
         }
     }
     
@@ -86,16 +141,44 @@ class MiniGameController: UIViewController {
                         self.displayView(tag: self.random[3])
                         [self.purpleImageView, self.blueImageView, self.yellowImageView, self.greenImageView].forEach {
                             $0?.isUserInteractionEnabled = true
+                            print("SET")
                         }
+                    } completion: { _ in
+                        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timerAction), userInfo: nil, repeats: true)
                     }
                 }
             }
         }
     }
     
+    @IBAction func handleTapBack(_ sender: Any) {
+        switch level {
+        case .level1:
+            level = .level2
+        case .level2:
+            level = .level3
+        case .level3:
+            return
+        }
+        resetAll()
+    }
+    
+    @IBAction func handleTapNext(_ sender: Any) {
+    }
+    
     private func displayView(tag: Int) {
         if let foundView = view.viewWithTag(tag) {
             foundView.alpha = 1
         }
+    }
+    
+    func setTextInput(input: String, size: CGFloat) -> NSAttributedString {
+        let strokeTextAttributes = [
+             NSAttributedString.Key.strokeColor : UIColor.white,
+             NSAttributedString.Key.foregroundColor : UIColor(hexString: "0655AB"),
+             NSAttributedString.Key.strokeWidth : -2.0,
+             NSAttributedString.Key.font: UIFont(name: "GangOfThree", size: size)
+           ] as [NSAttributedString.Key : Any]
+        return NSAttributedString(string: input, attributes: strokeTextAttributes)
     }
 }
