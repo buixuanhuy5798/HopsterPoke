@@ -32,8 +32,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var skyWidth: CGFloat = 1106
     var skyHeight: CGFloat = 1000
     
-    var groundSpeed: CGFloat = 50
-    let dinoHopForce = 100 as Int
+    var groundSpeed: CGFloat = 80
+    let dinoHopForce = 110 as Int
     
     let background: CGFloat = 0
     let foreground: CGFloat = 1
@@ -63,6 +63,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let dinoCategory = 1 << 1 as UInt32
     let cactusCategory = 1 << 2 as UInt32
     var needGenCactus = true
+    
+    var jumpTimer = Timer()
+    var isJump = false
     
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        for _ in touches {
@@ -106,6 +109,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(gameNode)
         physicsWorld.contactDelegate = self
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        jumpTimer.invalidate()
+    }
+    
+    private func runTimer() {
+        jumpTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(timerAction), userInfo: nil, repeats: false)
+    }
+    
+    @objc func timerAction() {
+        isJump = false
     }
     
     func gameWin() {
@@ -154,10 +170,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+        if rabbitSprite.position.x < -150 {
+            rabbitSprite.position.x = -150
+        }
+        if rabbitSprite.position.x > 110 {
+            rabbitSprite.position.x = 110
+        }
         if gameNode.speed > 0 {
             if currentTime - timeSinceLastSpawn > spawnRate && needGenCactus {
                 timeSinceLastSpawn = currentTime
-                spawnRate = Double.random(in: 3 ..< 4.5)
+                spawnRate = Double.random(in: 2 ..< 4)
                
                 if(Int.random(in: 0...13) < 8) {
                     if totalPoint == winnerPoint {
@@ -411,24 +433,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func follow(command: String?) {
         if command == "up" {
-            if let groundPosition = dinoYPosition {
-                if rabbitSprite.position.y < 0 {
-                    if rabbitSprite.position.y <= groundPosition && gameNode.speed > 0 {
-                        rabbitSprite.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-                        rabbitSprite.physicsBody?.applyImpulse(CGVector(dx: 0, dy: dinoHopForce))
-                        if UserInfomation.turnOnSound {
-                            run(jumpSound)
+            if !isJump {
+                isJump = true
+                runTimer()
+                if let groundPosition = dinoYPosition {
+                    if rabbitSprite.position.y < 0 {
+                        if rabbitSprite.position.y <= groundPosition && gameNode.speed > 0 {
+                            rabbitSprite.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+                            rabbitSprite.physicsBody?.applyImpulse(CGVector(dx: 0, dy: dinoHopForce))
+                            if UserInfomation.turnOnSound {
+                                run(jumpSound)
+                            }
                         }
                     }
                 }
             }
+           
         } else if command == "down" {
             rabbitSprite.physicsBody?.applyImpulse(CGVector(dx: 0, dy: -dinoHopForce))
 //            rabbitSprite.position = CGPoint(x: -frame.width/2+90, y: -frame.height/2 + groundHeight + 16)
         } else if command == "left" {
+            let actionMove = SKAction.move(by: CGVector(dx: -50, dy: 0), duration: 0.5)
+            rabbitSprite.run(actionMove)
             
         } else if command == "right" {
-            
+            let actionMove = SKAction.move(by: CGVector(dx: 50, dy: 0), duration: 0.5)
+            rabbitSprite.run(actionMove)
         }
         print("Command: \(command ?? "")")
     }
