@@ -16,6 +16,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var numberOfCarrotsLabel: UILabel!
     
     var point = 0
+    var canReceiver = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +35,8 @@ class GameViewController: UIViewController {
         }
         gameOverView.isHidden = true
         gameOverView.alpha = 0
-        numberOfCarrotsLabel.attributedText = setTextInput(input: "\(point)", size: 22)
-        
+        canReceiver = point
+        numberOfCarrotsLabel.attributedText = setTextInput(input: "\(canReceiver)", size: 22)
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -84,9 +85,9 @@ extension GameViewController: GameDelegate {
     
     func gameWin() {
         print("GAME WINNNN")
-        UserInfomation.numberOfCarrots += point
+        UserInfomation.numberOfCarrots += canReceiver
         if point > UserInfomation.record {
-            UserInfomation.record = point
+            UserInfomation.record = canReceiver
         }
         gameOverLabel.attributedText = setTextInput(input: "WIN", size: 30)
         gameOverView.isHidden = false
@@ -100,6 +101,16 @@ extension GameViewController: GameDelegate {
         guard let vc = sb.instantiateViewController(withIdentifier: "MiniGameController") as? MiniGameController else {
             return
         }
+        vc.result = { [weak self] rate in
+            self?.canReceiver *= rate
+            self?.numberOfCarrotsLabel.attributedText = self?.setTextInput(input: "\(self?.canReceiver ?? 0)", size: 22)
+            self?.continueGame()
+        }
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
+    }
+    
+    func continueGame() {
+        NotificationCenter.default.post(name: Notification.Name("ContiueGame"), object: nil)
     }
 }

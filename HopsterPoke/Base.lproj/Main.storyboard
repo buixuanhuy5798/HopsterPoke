@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wD5-BH-blq">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -420,9 +420,9 @@
                                             <constraint firstAttribute="width" constant="131" id="eT0-1i-Mf2"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="bet_button"/>
+                                        <state key="normal" image="go_back_button"/>
                                         <connections>
-                                            <action selector="handleTapNext:" destination="yx4-No-6QC" eventType="touchUpInside" id="F44-f8-dyA"/>
+                                            <action selector="handleTapBack:" destination="yx4-No-6QC" eventType="touchUpInside" id="tmC-eW-yUO"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6b-bP-4Wm">
@@ -432,28 +432,19 @@
                                             <constraint firstAttribute="height" constant="45" id="cud-Yb-3ci"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="menu_button"/>
+                                        <state key="normal" image="get_more_button"/>
                                         <connections>
-                                            <action selector="handleTapBack:" destination="yx4-No-6QC" eventType="touchUpInside" id="k9W-dq-e0Y"/>
+                                            <action selector="handleTapNext:" destination="yx4-No-6QC" eventType="touchUpInside" id="nwQ-jD-N1W"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mII-VH-yOB">
-                                        <rect key="frame" x="16" y="343.33333333333331" width="361" height="20.333333333333314"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="jHZ-gc-nrD" firstAttribute="top" secondItem="6eH-Uj-r90" secondAttribute="top" id="28s-RS-ffp"/>
                                     <constraint firstItem="OdV-60-s5A" firstAttribute="centerY" secondItem="jHZ-gc-nrD" secondAttribute="centerY" constant="-16" id="FyG-R1-1lm"/>
-                                    <constraint firstItem="OdV-60-s5A" firstAttribute="top" secondItem="mII-VH-yOB" secondAttribute="bottom" constant="24" id="H1U-fs-OSH"/>
                                     <constraint firstItem="G6b-bP-4Wm" firstAttribute="top" secondItem="OdV-60-s5A" secondAttribute="bottom" constant="16" id="JOO-4d-m0g"/>
                                     <constraint firstAttribute="trailing" secondItem="jHZ-gc-nrD" secondAttribute="trailing" id="JXp-7B-WyC"/>
-                                    <constraint firstItem="mII-VH-yOB" firstAttribute="leading" secondItem="6eH-Uj-r90" secondAttribute="leading" constant="16" id="aXt-bB-U0b"/>
                                     <constraint firstItem="jHZ-gc-nrD" firstAttribute="leading" secondItem="6eH-Uj-r90" secondAttribute="leading" id="dz6-Ds-HSC"/>
-                                    <constraint firstAttribute="trailing" secondItem="mII-VH-yOB" secondAttribute="trailing" constant="16" id="eGo-pl-Xdb"/>
                                     <constraint firstItem="G6b-bP-4Wm" firstAttribute="centerX" secondItem="OdV-60-s5A" secondAttribute="centerX" id="rsq-96-plx"/>
                                     <constraint firstItem="OdV-60-s5A" firstAttribute="centerX" secondItem="jHZ-gc-nrD" secondAttribute="centerX" id="sL4-LM-2LU"/>
                                     <constraint firstAttribute="bottom" secondItem="jHZ-gc-nrD" secondAttribute="bottom" id="vJd-25-QlX"/>
@@ -508,6 +499,8 @@
         <image name="bounder_input_image" width="178" height="61"/>
         <image name="bounder_rate_minigame" width="108" height="108"/>
         <image name="description_game_image" width="360" height="640"/>
+        <image name="get_more_button" width="131" height="45"/>
+        <image name="go_back_button" width="131" height="45"/>
         <image name="icon_carrot" width="16" height="26"/>
         <image name="lucky_blue" width="99" height="134"/>
         <image name="lucky_green" width="99" height="134"/>

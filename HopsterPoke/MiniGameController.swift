@@ -43,6 +43,7 @@ class MiniGameController: UIViewController {
     var level = MiniGameLevel.level1
     var remainTime = 0
     var rate = 1
+    var duration = 0.5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +68,8 @@ class MiniGameController: UIViewController {
     func gameOver() {
         print("LOSE")
         timer?.invalidate()
-        
+        result?(1)
+        dismiss(animated: true)
     }
     
     @objc private func timerAction() {
@@ -89,12 +91,15 @@ class MiniGameController: UIViewController {
         timer?.invalidate()
         switch level {
         case .level1:
+            duration = 0.5
             remainTime = 10
             rate = 2
         case .level2:
+            duration = 0.35
             remainTime = 5
             rate = 3
         case .level3:
+            duration = 0.2
             remainTime = 3
             rate = 4
         }
@@ -106,12 +111,24 @@ class MiniGameController: UIViewController {
     @objc private func handleTapImage(sender: UITapGestureRecognizer) {
         if let tag = sender.view?.tag {
             if !tap.contains(tag) {
+                SoundService.shared.playButtonMiniGame()
                 sender.view?.alpha = 0.5
                 tap.append(tag)
                 print(tap)
                 if tap.count == 4 {
+                    timer?.invalidate()
                     if tap == random {
-                        showWinPopup()
+                        if level == .level3 {
+                            SoundService.shared.playMinigameWin()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                SoundService.shared.playMinigameWin()
+                            }
+                            result?(4)
+                            dismiss(animated: true)
+                        } else {
+                            SoundService.shared.playMinigameWin()
+                            showWinPopup()
+                        }
                     } else {
                         gameOver()
                     }
@@ -128,16 +145,16 @@ class MiniGameController: UIViewController {
     }
     
     private func animationDisplay() {
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: duration) {
             self.displayView(tag: self.random[0])
         } completion: { _ in
-            UIView.animate(withDuration: 0.5) {
+            UIView.animate(withDuration: self.duration) {
                 self.displayView(tag: self.random[1])
             } completion: { _ in
-                UIView.animate(withDuration: 0.5) {
+                UIView.animate(withDuration: self.duration) {
                     self.displayView(tag: self.random[2])
                 } completion: { _ in
-                    UIView.animate(withDuration: 0.5) {
+                    UIView.animate(withDuration: self.duration) {
                         self.displayView(tag: self.random[3])
                         [self.purpleImageView, self.blueImageView, self.yellowImageView, self.greenImageView].forEach {
                             $0?.isUserInteractionEnabled = true
@@ -154,6 +171,18 @@ class MiniGameController: UIViewController {
     @IBAction func handleTapBack(_ sender: Any) {
         switch level {
         case .level1:
+            result?(2)
+        case .level2:
+            result?(3)
+        case .level3:
+            result?(4)
+        }
+        dismiss(animated: true)
+    }
+    
+    @IBAction func handleTapNext(_ sender: Any) {
+        switch level {
+        case .level1:
             level = .level2
         case .level2:
             level = .level3
@@ -161,9 +190,6 @@ class MiniGameController: UIViewController {
             return
         }
         resetAll()
-    }
-    
-    @IBAction func handleTapNext(_ sender: Any) {
     }
     
     private func displayView(tag: Int) {

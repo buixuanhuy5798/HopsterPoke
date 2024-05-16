@@ -33,7 +33,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var skyHeight: CGFloat = 1000
     
     var groundSpeed: CGFloat = 80
-    let dinoHopForce = 110 as Int
+    let dinoHopForce = 105 as Int
     
     let background: CGFloat = 0
     let foreground: CGFloat = 1
@@ -44,7 +44,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var lifeCount = 2
     var totalPoint = 0
-    var winnerPoint = Int.random(in: 12..<20)
+    var winnerPoint = Int.random(in: 13..<15)
+    var miniGamePoint = Int.random(in: 5..<10)
     
     let buttonDirUp = SKSpriteNode(imageNamed: "up_button")
     let buttonDirDown = SKSpriteNode(imageNamed: "down_button")
@@ -109,6 +110,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(gameNode)
         physicsWorld.contactDelegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(gameContinue), name: Notification.Name("ContiueGame"), object: nil)
     }
     
     deinit {
@@ -117,7 +119,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func runTimer() {
-        jumpTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(timerAction), userInfo: nil, repeats: false)
+        jumpTimer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(timerAction), userInfo: nil, repeats: false)
     }
     
     @objc func timerAction() {
@@ -139,6 +141,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         rabbitSprite.removeAllActions()
         rabbitSprite.texture = deadRabbitTexture
         gameDelegate?.gameOver()
+    }
+    
+    @objc func gameContinue() {
+        print("GAME CONTINUE")
+        totalPoint += 1
+        gameNode.speed = 1.0
+    }
+    
+    func gameShowMiniGame() {
+        gameDelegate?.showMinigame()
+        cactusNode.removeAllChildren()
+        gameNode.speed = 0
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -179,12 +193,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if gameNode.speed > 0 {
             if currentTime - timeSinceLastSpawn > spawnRate && needGenCactus {
                 timeSinceLastSpawn = currentTime
-                spawnRate = Double.random(in: 2 ..< 4)
+                spawnRate = Double.random(in: 1.5 ..< 3.5)
                
                 if(Int.random(in: 0...13) < 8) {
                     if totalPoint == winnerPoint {
                         spawnWinner()
                         needGenCactus = false
+                    } else if totalPoint == miniGamePoint {
+                        gameShowMiniGame()
                     } else {
                         spawnCactus()
                         totalPoint += 1
@@ -280,7 +296,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let moveCactus = SKAction.moveBy(x: -distanceToMove, y: 0.0, duration: TimeInterval(screenWidth / groundSpeed))
         let removeCactus = SKAction.removeFromParent()
         let moveAndRemove = SKAction.sequence([moveCactus, removeCactus])
-        sprite.run(moveAndRemove)
+        sprite.run(moveAndRemove) { [weak self] in
+            if sprite.name == "flowerpot_winner" {
+                self?.gameWin()
+            }
+        }
     }
     
     func createRabbit() {

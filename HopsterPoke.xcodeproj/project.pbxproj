@@ -33,6 +33,8 @@
 		05DCE8162BF0B9D100F97317 /* UserInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCE8152BF0B9D100F97317 /* UserInfomation.swift */; };
 		05DCE8182BF0FA2000F97317 /* GameWarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCE8172BF0FA2000F97317 /* GameWarningView.swift */; };
 		05DCE81A2BF105AF00F97317 /* BetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCE8192BF105AF00F97317 /* BetView.swift */; };
+		05E317252BF6611300CB3280 /* minigamewin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 05E317242BF6611300CB3280 /* minigamewin.mp3 */; };
+		05E317272BF6635200CB3280 /* minigametapbutton.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 05E317262BF6635200CB3280 /* minigametapbutton.mp3 */; };
 		05F6290A2BF30AF00028EFAE /* flowerpot1.png in Resources */ = {isa = PBXBuildFile; fileRef = 05F629092BF30AF00028EFAE /* flowerpot1.png */; };
 		05F6290C2BF30AF80028EFAE /* flowerpot2.png in Resources */ = {isa = PBXBuildFile; fileRef = 05F6290B2BF30AF80028EFAE /* flowerpot2.png */; };
 		05F629102BF313100028EFAE /* MiniGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F6290F2BF313100028EFAE /* MiniGameController.swift */; };
@@ -78,6 +80,8 @@
 		05DCE8152BF0B9D100F97317 /* UserInfomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfomation.swift; sourceTree = "<group>"; };
 		05DCE8172BF0FA2000F97317 /* GameWarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWarningView.swift; sourceTree = "<group>"; };
 		05DCE8192BF105AF00F97317 /* BetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetView.swift; sourceTree = "<group>"; };
+		05E317242BF6611300CB3280 /* minigamewin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = minigamewin.mp3; sourceTree = "<group>"; };
+		05E317262BF6635200CB3280 /* minigametapbutton.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = minigametapbutton.mp3; sourceTree = "<group>"; };
 		05F629092BF30AF00028EFAE /* flowerpot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flowerpot1.png; sourceTree = "<group>"; };
 		05F6290B2BF30AF80028EFAE /* flowerpot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flowerpot2.png; sourceTree = "<group>"; };
 		05F6290F2BF313100028EFAE /* MiniGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGameController.swift; sourceTree = "<group>"; };
@@ -200,6 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				F05CAF472BF1B23700AF90D2 /* button_tap.mp3 */,
+				05E317262BF6635200CB3280 /* minigametapbutton.mp3 */,
+				05E317242BF6611300CB3280 /* minigamewin.mp3 */,
 				F05CAF422BF1A34400AF90D2 /* SoundService.swift */,
 			);
 			path = Sounds;
@@ -282,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05E317252BF6611300CB3280 /* minigamewin.mp3 in Resources */,
 				05FC55C22BF3B5E600DDE126 /* flowerpot4.png in Resources */,
 				05D35D642BEFDB8100605C78 /* GangOfThree.ttf in Resources */,
 				05F6290A2BF30AF00028EFAE /* flowerpot1.png in Resources */,
@@ -295,6 +302,7 @@
 				0527E7F22BED270C006ECB75 /* Assets.xcassets in Resources */,
 				0527E7E92BED2709006ECB75 /* Actions.sks in Resources */,
 				05B0C7F92BF4FE91008497FB /* flowerpot_winner.png in Resources */,
+				05E317272BF6635200CB3280 /* minigametapbutton.mp3 in Resources */,
 				05FC55C42BF3B5EC00DDE126 /* flowerpot5.png in Resources */,
 				F05B85D52BF5DB360096451A /* flowerpot_tripple_1.png in Resources */,
 				0527E7F52BED270C006ECB75 /* Base in Resources */,
@@ -534,7 +542,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -568,7 +576,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
