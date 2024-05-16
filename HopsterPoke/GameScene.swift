@@ -27,7 +27,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var dinoYPosition: CGFloat?
     
     var groundHeight: CGFloat = 180
-    var groundWidth: CGFloat = 883
+    var groundWidth: CGFloat = 885
     
     var skyWidth: CGFloat = 1106
     var skyHeight: CGFloat = 1000
@@ -154,7 +154,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if gameNode.speed > 0 {
             if currentTime - timeSinceLastSpawn > spawnRate && needGenCactus {
                 timeSinceLastSpawn = currentTime
-                spawnRate = Double.random(in: 3 ..< 5.5)
+                spawnRate = Double.random(in: 3 ..< 4.5)
                
                 if(Int.random(in: 0...13) < 8) {
                     if totalPoint == winnerPoint {
