@@ -10,7 +10,7 @@ import UIKit
 class BetView: UIView {
     var didTapPlay: ((Int) -> Void)?
     
-    private var betNumber = UserInfomation.numberOfCarrots  {
+    private var betNumber = 1  {
         didSet {
             setTextInput()
         }
@@ -208,12 +208,12 @@ class BetView: UIView {
     }
     
     func reloadData() {
-        betNumber = UserInfomation.numberOfCarrots
+        betNumber = 1
         setTextInput()
     }
      
     @objc private func handleTapPlayButton() {
-        if betNumber == 0 {
+        if betNumber == 0 || UserInfomation.numberOfCarrots < betNumber {
             return
         }
         SoundService.shared.playButtonTapSound()

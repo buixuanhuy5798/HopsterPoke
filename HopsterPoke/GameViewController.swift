@@ -14,6 +14,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var gameOverLabel: UILabel!
     @IBOutlet weak var gameOverView: UIView!
     @IBOutlet weak var numberOfCarrotsLabel: UILabel!
+    
     var point = 0
     
     override func viewDidLoad() {
@@ -34,7 +35,7 @@ class GameViewController: UIViewController {
         gameOverView.isHidden = true
         gameOverView.alpha = 0
         numberOfCarrotsLabel.attributedText = setTextInput(input: "\(point)", size: 22)
-        gameOverLabel.attributedText = setTextInput(input: "GAME OVER", size: 30)
+        
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -74,10 +75,31 @@ extension GameViewController: GameDelegate {
     func gameOver() {
         print("GAME OVERRRRR")
         UserInfomation.numberOfCarrots -= point
+        gameOverLabel.attributedText = setTextInput(input: "GAME OVER", size: 30)
         gameOverView.isHidden = false
         UIView.animate(withDuration: 0.5) {
             self.gameOverView.alpha = 1
         }
-        
+    }
+    
+    func gameWin() {
+        print("GAME WINNNN")
+        UserInfomation.numberOfCarrots += point
+        if point > UserInfomation.record {
+            UserInfomation.record = point
+        }
+        gameOverLabel.attributedText = setTextInput(input: "WIN", size: 30)
+        gameOverView.isHidden = false
+        UIView.animate(withDuration: 0.5) {
+            self.gameOverView.alpha = 1
+        }
+    }
+    
+    func showMinigame() {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "MiniGameController") as? MiniGameController else {
+            return
+        }
+        present(vc, animated: true)
     }
 }

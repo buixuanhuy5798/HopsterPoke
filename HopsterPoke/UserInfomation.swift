@@ -43,6 +43,9 @@ struct UserInfomation {
     @UserDefault("number_of_carrots", defaultValue: 0)
     static var numberOfCarrots: Int
     
+    @UserDefault("record", defaultValue: 0)
+    static var record: Int
+    
     @UserDefault("last_time_checkin", defaultValue: nil)
     static var lastTimeCheckin: Date?
 }

@@ -15,6 +15,9 @@
 		0527E7F02BED2709006ECB75 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0527E7EF2BED2709006ECB75 /* Base */; };
 		0527E7F22BED270C006ECB75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0527E7F12BED270C006ECB75 /* Assets.xcassets */; };
 		0527E7F52BED270C006ECB75 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0527E7F42BED270C006ECB75 /* Base */; };
+		05B0C7F92BF4FE91008497FB /* flowerpot_winner.png in Resources */ = {isa = PBXBuildFile; fileRef = 05B0C7F82BF4FE91008497FB /* flowerpot_winner.png */; };
+		05B0C7FB2BF51C0E008497FB /* flowerpot_double_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 05B0C7FA2BF51C0E008497FB /* flowerpot_double_2.png */; };
+		05B0C7FD2BF51C22008497FB /* flowerpot_double_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 05B0C7FC2BF51C22008497FB /* flowerpot_double_1.png */; };
 		05D327FA2BF24E8C00905592 /* DailyCheckinCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D327F82BF24E8C00905592 /* DailyCheckinCellTableViewCell.swift */; };
 		05D327FB2BF24E8C00905592 /* DailyCheckinCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D327F92BF24E8C00905592 /* DailyCheckinCellTableViewCell.xib */; };
 		05D327FD2BF264FD00905592 /* TouchControlInputNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D327FC2BF264FD00905592 /* TouchControlInputNode.swift */; };
@@ -38,6 +41,7 @@
 		05FC55C42BF3B5EC00DDE126 /* flowerpot5.png in Resources */ = {isa = PBXBuildFile; fileRef = 05FC55C32BF3B5EC00DDE126 /* flowerpot5.png */; };
 		3FF6CB821A65AA32F9E3CAE0 /* Pods_HopsterPoke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB0A2B7CD2AFC9385AF8204 /* Pods_HopsterPoke.framework */; };
 		F024390D2BF4404D00FAEDD7 /* one_heart_left.wav in Resources */ = {isa = PBXBuildFile; fileRef = F024390C2BF4404D00FAEDD7 /* one_heart_left.wav */; };
+		F05B85D52BF5DB360096451A /* flowerpot_tripple_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F05B85D42BF5DB360096451A /* flowerpot_tripple_1.png */; };
 		F05CAF432BF1A34400AF90D2 /* SoundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CAF422BF1A34400AF90D2 /* SoundService.swift */; };
 		F05CAF482BF1B23700AF90D2 /* button_tap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F05CAF472BF1B23700AF90D2 /* button_tap.mp3 */; };
 		F05CAF4A2BF1B6AC00AF90D2 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CAF492BF1B6AC00AF90D2 /* NotificationService.swift */; };
@@ -55,6 +59,9 @@
 		0527E7EF2BED2709006ECB75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0527E7F12BED270C006ECB75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0527E7F42BED270C006ECB75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		05B0C7F82BF4FE91008497FB /* flowerpot_winner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flowerpot_winner.png; sourceTree = "<group>"; };
+		05B0C7FA2BF51C0E008497FB /* flowerpot_double_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flowerpot_double_2.png; sourceTree = "<group>"; };
+		05B0C7FC2BF51C22008497FB /* flowerpot_double_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flowerpot_double_1.png; sourceTree = "<group>"; };
 		05D327F82BF24E8C00905592 /* DailyCheckinCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCheckinCellTableViewCell.swift; sourceTree = "<group>"; };
 		05D327F92BF24E8C00905592 /* DailyCheckinCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyCheckinCellTableViewCell.xib; sourceTree = "<group>"; };
 		05D327FC2BF264FD00905592 /* TouchControlInputNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchControlInputNode.swift; sourceTree = "<group>"; };
@@ -81,6 +88,7 @@
 		81DB08E08893CA289D880388 /* Pods-HopsterPoke.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HopsterPoke.release.xcconfig"; path = "Target Support Files/Pods-HopsterPoke/Pods-HopsterPoke.release.xcconfig"; sourceTree = "<group>"; };
 		9AB0A2B7CD2AFC9385AF8204 /* Pods_HopsterPoke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HopsterPoke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F024390C2BF4404D00FAEDD7 /* one_heart_left.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = one_heart_left.wav; sourceTree = "<group>"; };
+		F05B85D42BF5DB360096451A /* flowerpot_tripple_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flowerpot_tripple_1.png; sourceTree = "<group>"; };
 		F05CAF422BF1A34400AF90D2 /* SoundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundService.swift; sourceTree = "<group>"; };
 		F05CAF472BF1B23700AF90D2 /* button_tap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = button_tap.mp3; sourceTree = "<group>"; };
 		F05CAF492BF1B6AC00AF90D2 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -158,6 +166,10 @@
 		05F629022BF2FD0D0028EFAE /* cacti */ = {
 			isa = PBXGroup;
 			children = (
+				F05B85D42BF5DB360096451A /* flowerpot_tripple_1.png */,
+				05B0C7FC2BF51C22008497FB /* flowerpot_double_1.png */,
+				05B0C7FA2BF51C0E008497FB /* flowerpot_double_2.png */,
+				05B0C7F82BF4FE91008497FB /* flowerpot_winner.png */,
 				05FC55C32BF3B5EC00DDE126 /* flowerpot5.png */,
 				05FC55C12BF3B5E600DDE126 /* flowerpot4.png */,
 				05FC55BF2BF3B5DF00DDE126 /* flowerpot3.png */,
@@ -279,10 +291,14 @@
 				0527E7F02BED2709006ECB75 /* Base in Resources */,
 				F05CAF542BF1C68600AF90D2 /* arrow_up_down.wav in Resources */,
 				F024390D2BF4404D00FAEDD7 /* one_heart_left.wav in Resources */,
+				05B0C7FB2BF51C0E008497FB /* flowerpot_double_2.png in Resources */,
 				0527E7F22BED270C006ECB75 /* Assets.xcassets in Resources */,
 				0527E7E92BED2709006ECB75 /* Actions.sks in Resources */,
+				05B0C7F92BF4FE91008497FB /* flowerpot_winner.png in Resources */,
 				05FC55C42BF3B5EC00DDE126 /* flowerpot5.png in Resources */,
+				F05B85D52BF5DB360096451A /* flowerpot_tripple_1.png in Resources */,
 				0527E7F52BED270C006ECB75 /* Base in Resources */,
+				05B0C7FD2BF51C22008497FB /* flowerpot_double_1.png in Resources */,
 				05FC55C02BF3B5DF00DDE126 /* flowerpot3.png in Resources */,
 				05F6290C2BF30AF80028EFAE /* flowerpot2.png in Resources */,
 			);
@@ -507,8 +523,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T6QW536M34;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HopsterPoke/Info.plist;
@@ -518,13 +536,15 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = xuanhuy.hospterpoke.HopsterPoke;
+				PRODUCT_BUNDLE_IDENTIFIER = xuanhuy.hopster.poke;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -537,8 +557,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T6QW536M34;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HopsterPoke/Info.plist;
@@ -548,13 +570,15 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = xuanhuy.hospterpoke.HopsterPoke;
+				PRODUCT_BUNDLE_IDENTIFIER = xuanhuy.hopster.poke;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
