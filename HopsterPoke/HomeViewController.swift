@@ -62,7 +62,8 @@ class HomeViewController: UIViewController {
     @objc private func gameOverTapBet() {
         menuView.currentSelection = .playGame
         updateView(state: .playGame)
-//        betView.reloadData()
+        betView.getBalance()
+        betView.updateBetNumber()
     }
     
     @objc private func gameOverTapMenu() {
@@ -79,10 +80,13 @@ class HomeViewController: UIViewController {
         [betView, optionView, instructionView, dailyCheckinView, homeView].forEach {
             if state == .instructions {
                 instructionView.resetContent()
-            }
-            if state == .home {
+            } else if state == .home {
                 reloadContent()
+            } else if state == .playGame {
+                betView.getBalance()
+                betView.updateBetNumber()
             }
+        
             if $0.tag == state.rawValue {
                 $0.isHidden = false
             } else {

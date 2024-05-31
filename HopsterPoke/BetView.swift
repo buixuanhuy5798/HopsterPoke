@@ -12,9 +12,30 @@ class BetView: UIView {
     
     private var betNumber = 1  {
         didSet {
-            setTextInput()
+            updateBetNumber()
         }
     }
+    
+    private var balanceLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private var descriptionErrorLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        let labelText = "Not enough carrots"
+        let strokeTextAttributes = [
+             NSAttributedString.Key.strokeColor : UIColor(hexString: "0655AB"),
+             NSAttributedString.Key.foregroundColor : UIColor.white,
+             NSAttributedString.Key.strokeWidth : -2.0,
+             NSAttributedString.Key.font: UIFont(name: "GangOfThree", size: 14)
+           ] as [NSAttributedString.Key : Any]
+        label.attributedText = NSAttributedString(string: labelText, attributes: strokeTextAttributes)
+        return label
+    }()
     
     private var titleLabel: UILabel = {
         let label = UILabel()
@@ -176,13 +197,27 @@ class BetView: UIView {
         }
         subtractButton.addTarget(self, action: #selector(handleTapSubtractButton), for: .touchUpInside)
         addButton.addTarget(self, action: #selector(handleTapAddButton), for: .touchUpInside)
+        addSubview(balanceLabel)
+        balanceLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(16)
+            $0.top.equalTo(bounderUpdateCarrotView.snp.bottom).offset(24)
+            $0.centerX.equalToSuperview()
+        }
+        addSubview(descriptionErrorLabel)
+        descriptionErrorLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(16)
+            $0.top.equalTo(balanceLabel.snp.bottom).offset(16)
+            $0.centerX.equalToSuperview()
+        }
         addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
-            $0.top.equalTo(bounderUpdateCarrotView.snp.bottom).offset(32)
+            $0.top.equalTo(descriptionErrorLabel.snp.bottom).offset(16)
             $0.centerX.equalToSuperview()
         }
-        setTextInput()
+        
+        updateBetNumber()
+        getBalance()
     }
     
     @objc private func handleTapAddButton() {
@@ -197,7 +232,7 @@ class BetView: UIView {
         }
     }
     
-    func setTextInput() {
+    func updateBetNumber() {
         let strokeTextAttributes = [
              NSAttributedString.Key.strokeColor : UIColor.white,
              NSAttributedString.Key.foregroundColor : UIColor(hexString: "0655AB"),
@@ -205,11 +240,23 @@ class BetView: UIView {
              NSAttributedString.Key.font: UIFont(name: "GangOfThree", size: 23)
            ] as [NSAttributedString.Key : Any]
         numberOfCarrotsLabel.attributedText = NSAttributedString(string: "\(betNumber)", attributes: strokeTextAttributes)
+        descriptionErrorLabel.isHidden = UserInfomation.numberOfCarrots >= betNumber 
+    }
+    
+    func getBalance() {
+        let labelText = "Balance: \(UserInfomation.numberOfCarrots)"
+        let strokeTextAttributes = [
+             NSAttributedString.Key.strokeColor : UIColor(hexString: "0655AB"),
+             NSAttributedString.Key.foregroundColor : UIColor.white,
+             NSAttributedString.Key.strokeWidth : -2.0,
+             NSAttributedString.Key.font: UIFont(name: "GangOfThree", size: 24)
+           ] as [NSAttributedString.Key : Any]
+        balanceLabel.attributedText = NSAttributedString(string: labelText, attributes: strokeTextAttributes)
     }
     
     func reloadData() {
         betNumber = 1
-        setTextInput()
+        updateBetNumber()
     }
      
     @objc private func handleTapPlayButton() {

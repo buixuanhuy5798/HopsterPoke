@@ -40,7 +40,7 @@ struct UserInfomation {
     @UserDefault("daily_checkin_count", defaultValue: 0)
     static var dailyCheckinCount: Int
     
-    @UserDefault("number_of_carrots", defaultValue: 0)
+    @UserDefault("number_of_carrots", defaultValue: 5)
     static var numberOfCarrots: Int
     
     @UserDefault("record", defaultValue: 0)
